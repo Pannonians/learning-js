@@ -35,4 +35,9 @@ const found = text.match(regex);
 
 const stringObj = new String('David');
 
+<<<<<<< HEAD
 //console.log(stringObj);
+=======
+//console.log(stringObj);
+//done
+>>>>>>> b0947bd4d8c8fdf0ffece2fa75255a3a52a43277
