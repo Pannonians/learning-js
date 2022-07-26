@@ -1,4 +1,5 @@
-let firstname = 'David';
-let age = 34;
+var string = 'David';
+var number = 34
 
-console.log('My name is ' + firstname + ' and I am 34!');
+console.log('My name is ' + string + '. I am ' + number + '!' );
+
