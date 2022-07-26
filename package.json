@@ -1,0 +1,17 @@
+{
+  "name": "learning-js",
+  "version": "1.0.0",
+  "description": "**Shortcuts and Most used commands in Linux**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@pannonians.github.com:pvukmanovic-pannonians/learning-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
