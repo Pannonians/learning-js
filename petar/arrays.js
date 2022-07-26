@@ -27,7 +27,7 @@ function run() {
 
   // hocu da u svaki od nizova stavim inicijale
   const inicijali = newArray.map((jedanOdNiza) => {
-    //   const initials = jedanOdNiza.firstName[0] + jedanOdNiza.lastName[0];
+    // const initials = jedanOdNiza.firstName[0] + jedanOdNiza.lastName[0];
     const { firstName, lastName } = jedanOdNiza;
 
     return {
@@ -44,7 +44,10 @@ function run() {
 
   console.log(
     "nadji Davida",
-    inicijali.find((nekaVarijabla) => nekaVarijabla.firstName === "David")
+    Object.assign(
+      {},
+      inicijali.find((nekaVarijabla) => nekaVarijabla.firstName === "David")
+    )
   );
 }
 
