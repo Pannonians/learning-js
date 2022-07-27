@@ -52,3 +52,14 @@
 - Print todos
 - Print only todos that are completed
 - Print only todos that are not completed
+
+```
+function Todo(title) {
+  this.title = title;
+  this.completed = false;
+}
+
+Todo.prototype.toggleTodo = function () {
+  this.completed = !this.completed;
+};
+```
