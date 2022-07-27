@@ -63,3 +63,6 @@ Todo.prototype.toggleTodo = function () {
   this.completed = !this.completed;
 };
 ```
+
+--------------------
+Dodao nesto
