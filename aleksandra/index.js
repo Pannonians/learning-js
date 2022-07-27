@@ -1,2 +1,4 @@
-console.log('hello world');
+const app = require('./arrays');
+
+app.run();
 
