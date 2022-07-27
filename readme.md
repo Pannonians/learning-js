@@ -66,3 +66,4 @@ Todo.prototype.toggleTodo = function () {
 
 --------------------
 Dodao nesto
+Ovde je sad nesto drugacije
