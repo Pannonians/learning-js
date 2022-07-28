@@ -25,7 +25,7 @@ toDoList.push(new Todo ("stavi bolonjez u frizider da se ne usmrdi")),
 toDoList.push(new Todo ("daj kerovima veceru")),
 toDoList.push(new Todo ("usput nahrani i decu"));
 
-//Print todos
+//Print todos.
 
 console.log ('jel se vidi ova lista', toDoList);
 
