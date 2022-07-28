@@ -1,0 +1,10 @@
+{
+  "name": "petar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "weather": "weather -c Serbia -C 'Novi Sad'"
+  }
+}
