@@ -20,7 +20,7 @@ function run() {
     console.log ("ToDo lista svih otvorenih zadataka:",toDoList);
 
     toDoList = toDoList.map((toDo, index) => {  
-        if (index === 2 || index ===3) {
+        if (index === 2 || index === 3) {
             toDo.toggleToDo();
             return toDo;
         }
