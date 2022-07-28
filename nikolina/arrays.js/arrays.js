@@ -24,7 +24,30 @@ function run() {
 
     //zelim da ispravim da mi svako prvo slovo imena i prezimena autora bude veliko
 
-    const letterUpperCase = array.map ((fullname) => {
+      
+     /*  const capitalizeWords = [];
+      
+      array.forEach (element => {
+          firstname = capitalizeWords.push(element.firstName.charAt(0).toUpperCase()+ element.firstName.slice(1).toLowerCase()),
+          lastname = capitalizeWords.push(element.lastName.charAt(0).toUpperCase()+ element.lastName.slice(1).toLowerCase());
+          });
+           */
+          
+          const capitalizeWords = array.map ((createBook) => {
+              return {
+                  ...createBook,
+                  firstname.charAt(0).toUpperCase()+ firstName.slice(1).toLowerCase(),
+              }
+          })
+          console.log("da prvo slovo bude veliko", capitalizeWords);
+          
+          /* && createBook.lastName.charAt(0).toUpperCase()+ createBook.lastName.slice(1).toLowerCase(); */
+       
+          
+
+      
+
+    /* const letterUpperCase = array.map ((fullname) => {
         const {firstName, lastName} = fullname;
         return{
             ...fullname,
@@ -32,8 +55,8 @@ function run() {
             lastNameCapsLetter: lastName.split (' ').map(rec => rec.charAt(0).toUpperCase() + rec.slice(1)),
         };
     
-    }); 
-    console.log("da prvo slovo bude veliko", letterUpperCase);
+    });  */
+
 
     const initials = array.map ((inicijali) => {
         const {firstName, lastName} = inicijali;
