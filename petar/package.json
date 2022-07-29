@@ -5,6 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "weather": "weather -c Serbia -C 'Novi Sad'"
-  }
+    "weather": "weather -c Serbia -C 'Novi Sad'",
+    "inquirer": "yarn workspace petar-inquirer"
+  },
+  "private": true,
+  "workspaces": ["./inquirer"]
 }
