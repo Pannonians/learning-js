@@ -1,5 +1,6 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
+const chalk = require('chalk')
 
 function Todo(title, done = false) {
   this.title = title
@@ -7,7 +8,7 @@ function Todo(title, done = false) {
 }
 
 function run() {
-  console.log('Welcome to todo app!')
+  console.log(chalk.blue('Welcome to todo app!'))
 
   if (!fs.existsSync('./todos/todos.json')) {
     fs.writeFileSync('./todos/todos.json', JSON.stringify([]))
