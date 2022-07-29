@@ -1,30 +1,48 @@
-const array1 = [0,1,2,3,4,5,6,7,8,9];
+const person = (firstNeme, lastName, age, gender) => {
+    const fullName = `${firstNeme} ${lastName}`;
+    const fullInfo = `${firstNeme} ${lastName} ${age} ${gender}`;
 
-//console.log(array1);
-//console.log(array1[3]);
+    return{
+        firstNeme,
+        lastName,
+        fullName,
+        age,
+        gender,
+        fullInfo,
+    }
+}
 
-const array2 = [0,1,2,3,4];
-const array3 = [5,6,7,8,9];
+function run() {
+    console.log("This is exercise related to Arrays!!");
+    const rajna = person('Rajna', 'Mandic', 34, 'female')
 
-//console.log(array2.concat(array3));
+    const array = [
+        person('David', 'Mandic', 34, 'male'),
+        person('Dusan', 'Mandic', 2, 'male'),
+        rajna,
+    ];
 
-const array4 = ['a','b'];
-const array5 = [1,2];
+    console.log(array);
+    console.log("Array length: ", array.length);
 
-//console.log(array4.concat(array5));
-//console.log(array1.copyWithin(1,5));
+    //Initials in array
+    console.log(
+        array.map((onePerson) => {
+            const initials = onePerson.firstNeme[0] + onePerson.lastName[0]
+            return{
+             ...onePerson,
+             initials,
+            }
+        })
+    )
 
-const found = array1.find(element => element > 5);
-//console.log(found);
+    //Filter 
+    console.log('Filter', array.filter((oneInArray) => oneInArray.age < 10));
 
-const text = ['David55', 'Mirko55', 'Petar5', 'Dusan5', 'Aleksandar', 'Ozren5'];
-const filter = text.filter(filterword => filterword.length > 6);
+    //Find 
+    console.log('Find Dusan', array.find((findDusan) => findDusan.firstNeme === 'Dusan'));
+}
 
-//console.log(filter);
-
-const map = [2, 22, 222];
-const map2 = map.map(x => x*2);
-const map3 = map.map(x => x + 'test');
-
-//console.log(map2);
-console.log(map3);
+module.exports = {
+    run,
+};

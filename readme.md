@@ -39,3 +39,31 @@
 |**chmod**|this command is used to change the read, write, and execute permissions of files and directories.|
 |**top**|the top command will display a list of running processes and how much CPU each process uses.|
 |**man**|displays the manual instructions of certain Linux commands.|
+
+---------------
+## Homework "Todo"
+- Create an object generator for Todo instances
+  - Accept a "title" argument
+  - Always generate a todo with `completed: false` property 
+- Prototype a function to switch todo
+- Create 5 todo items in an array
+- Print todos
+- Switch 3rd and 4th todo to be completed
+- Print todos
+- Print only todos that are completed
+- Print only todos that are not completed
+
+```
+function Todo(title) {
+  this.title = title;
+  this.completed = false;
+}
+
+Todo.prototype.toggleTodo = function () {
+  this.completed = !this.completed;
+};
+```
+
+--------------------
+Dodao nesto
+Ovde je sad nesto drugacije
