@@ -1,0 +1,51 @@
+Arguments: 
+  /home/pannonians/.nvm/versions/node/v14.20.0/bin/node /home/pannonians/.nvm/versions/node/v14.20.0/bin/yarn workspace nikolina start
+
+PATH: 
+  /home/pannonians/.cache/cloud-code/installer/google-cloud-sdk/bin:/home/pannonians/.nvm/versions/node/v14.20.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  14.20.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/pannonians/dev/learning-js/nikolina/package.json: Unexpected token } in JSON at position 444
+      at JSON.parse (<anonymous>)
+      at /home/pannonians/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/home/pannonians/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /home/pannonians/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "Nikolina",
+    "version": "v1.22.19",
+    "description": "learning-js",
+    "main": "index.js",
+    "repository": "https://github.com/Pannonians/learning-js",
+    "author": "Petar Vukmanovic",
+    "license": "MIT",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

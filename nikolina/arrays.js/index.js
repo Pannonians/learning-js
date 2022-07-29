@@ -1,3 +1,3 @@
-const app = require("./arrays");
+const app = require("./reduce");
 
 app.run();
