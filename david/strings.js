@@ -7,60 +7,68 @@ var index1 = 8;
 //charAt
 console.log(`The character at index ${index} is : ${sentence.charAt(index)}`);
 console.log(`The character at index ${index1} is : ${sentence.charAt(index1)}`);
+console.log("Index_1: ", sentence.charAt(index1));
 
 var a = 'David';
 var b = 'Mandic';
 var c = 28;
 
 //concat
-console.log(a.concat(' ', b, ' ', c));
+console.log("concat ", a.concat(' ', b, ' ', c));
+console.log("concat ", b.concat(', ', a));
 
 //endsWith
-console.log(sentence.endsWith('David'));
+console.log("endsWith ", sentence.endsWith('David'));
+console.log("endsWith ", sentence.endsWith('JavaScript!'));
 
 //startWith
-console.log(sentence.startsWith('This'));
+console.log("startsWith ", sentence.startsWith('This'));
+console.log("startsWith ", sentence.startsWith('Javascript'));
 
 //Includes
 var word = 'JavaScript';
 var word2 = 'David';
 console.log(`The word "${word}" ${sentence.includes(word) ? 'is' : 'is not'} in the sentence`);
-console.log(sentence.includes(word2));
+console.log("includes ", sentence.includes(word2));
+console.log("includes ", sentence.includes("David"));
 
 
 const sentence1 = "   Start       This is my first string in JavaScript!   End     "
 //trim
-console.log(sentence1.trim());
+console.log("trim ", sentence1.trim());
 //toUpperCase
-console.log(sentence.toUpperCase());
+console.log("toUpperCase ", sentence.toUpperCase());
+console.log("toUpperCase ", sentence1.toUpperCase());
 //toLowerCase
-console.log(sentence1.toLowerCase());
+console.log("toLowerCase ", sentence1.toLowerCase());
 //Slice
-console.log(a.slice(0, 3));
+console.log("slice ", a.slice(0, 3));
+console.log("slice ", b.slice(0, 5));
 //charAt
-console.log(a.charAt(2));
+console.log("charAt ", a.charAt(2));
 //substring
-console.log(a.substring(0,1));
+console.log("substring ", a.substring(0,1));
 //trimEnd
-console.log(sentence1.trimEnd());
+console.log("trimEnd ", sentence1.trimEnd());
 //trimStart
-console.log(sentence1.trimStart());
+console.log("trimStart ", sentence1.trimStart());
 //split
 const word1 = sentence.split(' ');
-console.log(word1[4]);
+console.log("Split ", word1[4]);
 
 const car = sentence.split('');
-console.log(car[5]);
+console.log("Split ", car[5]);
+
 //match
-console.log(sentence.match('Java'));
+console.log("match ", sentence.match('Java'));
 //replace
-console.log(sentence.replace('JavaScript', 'code'));
+console.log("replace ", sentence.replace('JavaScript', 'code'));
 
 const password = 'Password is ';
 //padEnd
-console.log(password.padEnd(20, '*'));
+console.log("padEnd ", password.padEnd(20, '*'));
 //repeat
-console.log(`This is ${password.repeat(5)}`);
+console.log("repeat ", `This is ${password.repeat(5)}`);
 }
 
 module.exports = {
