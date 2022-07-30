@@ -12,16 +12,15 @@ const person = (firstNeme, lastName, age, gender) => {
     }
 }
 
-const car = (brend, color, doors, engine, yearsOld) => {
+const car = (brand, color, doors, engine, yearsOld) => {
     return{
-        brend,
+        brand,
         color,
         doors,
         engine,
         yearsOld,
     }
 };
-
 
 function run() {
     console.log("This is exercise related to Arrays!!");
@@ -93,17 +92,13 @@ function run() {
     console.log("Finde 4 dors: ", arrayCar.find((oneCar) => oneCar.doors === 4));
 
     console.log(arrayCar.map((oneCar) => {
-        const short = oneCar.brend[0] + oneCar.color[0] + oneCar.doors + oneCar.yearsOld;
+        const short = oneCar.brand[0] + oneCar.color[0] + oneCar.doors + oneCar.yearsOld;
         return{
             ...oneCar,
             short,
         }
     }));
-
-    console.log(arrayCar.map((oneCar) => oneCar.doors + '/5'));
-
 }
-
 
 module.exports = {
     run,
