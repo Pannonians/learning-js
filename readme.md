@@ -81,3 +81,19 @@ Todo.prototype.toggleTodo = function () {
      7  DavidMandic
 ```
 - Use `chalk` npm package for some highlights and pretty colors
+- An example of a node command that executes commands on bash:
+```
+const { exec } = require("child_process");
+
+exec("ls -la", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
+```
