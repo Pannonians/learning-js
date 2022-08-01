@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
-  }
+    "start": "node index.js",
+    "inquirer": "yarn workspace aleksandra-inquirer"
+  },
+  "private": true,
+  "workspaces": ["./inquirer"]
 }
 
