@@ -1,4 +1,4 @@
-const awesomeNewBookGenerator = (firstName, lastName, title, year) => {
+const lameOldBookGenerator = (firstName, lastName, title, year) => {
     const book = `${firstName} ${lastName} ${title} ${year}`;
 
     return {
@@ -16,10 +16,10 @@ function run() {
     console.log ('We are currently running app called arrays');
 
     const array = [
-        awesomeNewBookGenerator ("aghata", "cristie", "Hercule Poirot", 1920),
-        awesomeNewBookGenerator ("joanne", "rowling", "Harry Potter", 1995),
-        awesomeNewBookGenerator ("eichiro", "oda", "One Piece", 1990),
-        awesomeNewBookGenerator ("john", "tolkin", "Lord of the Rings", 1980)
+        lameOldBookGenerator ("aghata", "cristie", "Hercule Poirot", 1920),
+        lameOldBookGenerator ("joanne", "rowling", "Harry Potter", 1995),
+        lameOldBookGenerator ("eichiro", "oda", "One Piece", 1990),
+        lameOldBookGenerator ("john", "tolkin", "Lord of the Rings", 1980)
     ];
 
     //zelim da ispravim da mi svako prvo slovo imena i prezimena autora bude veliko
