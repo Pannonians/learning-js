@@ -1,5 +1,5 @@
 {
-  "name": "Nikolina",
+  "name": "nikolina",
   "version": "v1.22.19",
   "description": "learning-js",
   "main": "index.js",
@@ -7,11 +7,13 @@
   "author": "Petar Vukmanovic",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "inquirer": "yarn workspace nikolina-inquirer"
   },
-  "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "private":"true",
+  "workspaces": ["./inquirer"]
 }
