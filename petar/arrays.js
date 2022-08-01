@@ -1,8 +1,8 @@
-Array.prototype.random = function () {
+Array.prototype.fullyRandomElement = function () {
   return this[Math.floor(Math.random() * this.length)];
 };
 
-const createPerson = (firstName, lastName) => {
+const makePerson = (firstName, lastName) => {
   const fullName = `${firstName} ${lastName}`;
 
   return {
@@ -10,7 +10,7 @@ const createPerson = (firstName, lastName) => {
     lastName,
     fullName,
     activated: true,
-    title: jobTitles.random(),
+    title: jobTitles.fullyRandomElement(),
   };
 };
 
@@ -27,30 +27,28 @@ const jobTitles = [
 function run() {
   console.log("We are currently running app called arrays");
 
-  const aleksandra = createPerson("Aleksandra", "Vukasinovic");
-
   const array = [
-    createPerson("Nikolina", "Novakovic"),
-    createPerson("David", "Mandic"),
-    createPerson("Petar", "Vukmanovic"),
-    createPerson("Mirko", "Vasic"),
-    createPerson("Stefan", "Dankuc"),
-    createPerson("Dusan", "Gajic"),
-    createPerson("Milan", "Tesic"),
-    createPerson("Igor", "Popovic"),
-    createPerson("Tijana", "Golovic"),
-    aleksandra,
+    makePerson("Nikolina", "Novakovic"),
+    makePerson("Petar", "Vukmanovic"),
+    makePerson("Stefan", "Dankuc"),
+    makePerson("Aleksandra", "Vukasinovic"),
+    makePerson("Dusan", "Gajic"),
+    makePerson("Milan", "Tesic"),
+    makePerson("Mirko", "Vasic"),
+    makePerson("Igor", "Popovic"),
+    makePerson("Tijana", "Golovic"),
+    makePerson("David", "Mandic"),
   ];
 
   console.log(jobTitles.random());
 
-  // console.log(
-  //   "banalan primer",
-  //   array.reduce((acc, covek) => {
-  //     acc.push(covek.fullName.toUpperCase());
-  //     return acc;
-  //   }, [])
-  // );
+  console.log(
+    "banalan primer",
+    array.reduce((acc, covek) => {
+      acc.push(covek.fullName.toUpperCase());
+      return acc;
+    }, [])
+  );
 
   // console.log("array", array);
 
