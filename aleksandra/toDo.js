@@ -1,9 +1,9 @@
-function SingleTodo(title) {
+function TodoGenerator(title) {
     this.title = title;
     this.completed = false;
 };
   
-SingleTodo.prototype.singleTodoSwitch = function () {
+TodoGenerator.prototype.switchYesOrNo = function () {
     this.completed = !this.completed;
 };
 
@@ -11,17 +11,17 @@ function run() {
     
     var toDoList = [];
 
-    toDoList.push(new SingleTodo('srediti kuhinju'));
-    toDoList.push(new SingleTodo('srediti kupatilo'));
-    toDoList.push(new SingleTodo('usisati sobu'));
-    toDoList.push(new SingleTodo('obaviti kupovinu'));
-    toDoList.push(new SingleTodo('zaliti cvece'));
+    toDoList.push(new TodoGenerator('srediti kuhinju'));
+    toDoList.push(new TodoGenerator('srediti kupatilo'));
+    toDoList.push(new TodoGenerator('usisati sobu'));
+    toDoList.push(new TodoGenerator('obaviti kupovinu'));
+    toDoList.push(new TodoGenerator('zaliti cvece'));
        
     console.log ("ToDo lista svih otvorenih zadataka:",toDoList);
 
     toDoList = toDoList.map((toDo, index) => {  
         if (index === 2 || index === 3) {
-            toDo.singleTodoSwitch();
+            toDo.switchYesOrNo();
             return toDo;
         }
         return toDo;
