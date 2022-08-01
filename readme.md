@@ -65,5 +65,35 @@ Todo.prototype.toggleTodo = function () {
 ```
 
 --------------------
-Dodao nesto
-Ovde je sad nesto drugacije
+
+## Homework "Repo Explorer"
+
+- Create a new file from where you'll run this app
+- The app needs to find out people who performed commits on the repo
+- The app needs to print out which person made how many commits on the repo
+- Example:
+```
+    30  Petar Vukmanovic
+    25  Nikolina Novakovic
+    19  David Mandic
+    12  Aleksandra Vukasinovic
+     8  pvukmanovic-pannonians
+     7  DavidMandic
+```
+- Use `chalk` npm package for some highlights and pretty colors
+- An example of a node command that executes commands on bash:
+```
+const { exec } = require("child_process");
+
+exec("ls -la", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
+```

@@ -9,12 +9,22 @@ function run() {
     
     console.log("Join strings into sentance: ", sentence);
 
+    const words = ["Java Script ", "is ", "very ", "powerful ", "programming ", "language !"];
+    let sentance1 = words.reduce((accumulator, value) => 
+        accumulator + value);
+    console.log("Words into sentenc: ", sentance1);
+
     //Reduce numbers 
     var numbers = [10, 10, 15, 20, 20, 5, 5, 40, 40, 50];
     let sumNumbers = numbers.reduce((accumulator, value) => 
         accumulator + value)
 
     console.log("Sum: ", sumNumbers);
+
+    let subNumbers = numbers.reduce((accumulator, value) => 
+        accumulator - value);
+    
+    console.log("Sub: ", subNumbers);
 
     //Remove duplicates 
     let removeDuplicates = numbers.reduce((accumulator, value) => {
@@ -44,9 +54,19 @@ function run() {
         accumulator[peopleItem.age].push(peopleItem);
         return accumulator;
       }, {}));
+
+    console.log (
+    people.reduce((accumulator, peopleItem) => {
+    
+        if (!accumulator[peopleItem.name]) {
+           accumulator[peopleItem.name] = [];
+        }
+           accumulator[peopleItem.name].push(peopleItem);
+           return accumulator;
+        }, {}));
+
     }
-    
-    
+
 module.exports = {
     run,
 };

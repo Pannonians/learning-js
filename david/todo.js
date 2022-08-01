@@ -1,25 +1,18 @@
-function todo(title) {
-    this.title = title;
-    this.complited = false;
-}
-
-todo.prototype.toggle = function() {
-    this.complited = !this.complited;
-}
+const Todoslav = require('./helpers').Todo
 
 function run(){
     console.log("This is 'todoList' app related to JavaScript course!");
 
-    let todoList = [];
-    todoList.push(new todo("GitHub"));
-    todoList.push(new todo("Node"));
-    todoList.push(new todo("JavaScript"));
-    todoList.push(new todo("React js"));
-    todoList.push(new todo("Linux(Ubuntu)"));
+    let listica = [];
+    listica.push(new Todoslav("GitHub"));
+    listica.push(new Todoslav("Node"));
+    listica.push(new Todoslav("JavaScript"));
+    listica.push(new Todoslav("React js"));
+    listica.push(new Todoslav("Linux(Ubuntu)"));
    
-    console.log(todoList);
+    console.log(listica);
 
-    todolist = todoList.map((todoListItem, index) => {
+    todolist = listica.map((todoListItem, index) => {
         if (index === 2 || index === 3) {
             todoListItem.toggle();
             return todoListItem;
@@ -29,10 +22,10 @@ function run(){
         }
     })
 
-    console.log("Switch 3rd and 4th todo to be completed", todoList);
+    console.log("Switch 3rd and 4th todo to be completed", listica);
 
-    console.log("Print only todos that are completed", todoList.filter((item) => item.complited));
-    console.log("Print only todos that are not completed", todoList.filter((item) => !item.complited));
+    console.log("Print only todos that are completed", listica.filter((item) => item.complited));
+    console.log("Print only todos that are not completed", listica.filter((item) => !item.complited));
 }
 
 module.exports = {
