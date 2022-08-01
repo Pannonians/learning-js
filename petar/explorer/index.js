@@ -1,7 +1,16 @@
 const { exec } = require("child_process");
+const chalk = require("chalk");
+const logo = require("./git_logo_ascii").logo;
+
+const randomHexColorCode = () => {
+  let n = (Math.random() * 0xfffff * 1000000).toString(16);
+  return "#" + n.slice(0, 6);
+};
 
 function run() {
-  console.log("Git repo explorer");
+  console.log(chalk.blackBright.bold(logo));
+  console.log(chalk.italic("Do you even commit, brah?"));
+  console.log("\n");
 
   exec("git shortlog -s -n --all --no-merges", (error, stdout, stderr) => {
     if (error) {
@@ -22,8 +31,6 @@ function run() {
       commits: Number(line[0]),
       author: line[1],
     }));
-
-    console.log("lines", lines);
 
     lines = lines.reduce((acc, line) => {
       const authorWords = line.author
@@ -46,17 +53,30 @@ function run() {
         return acc;
       }
 
-      const findByKey = Object.keys(acc)
-        .find((name) =>
-          name.toLowerCase()
-            .split(" ")
-            .some((split) => line.author.toLowerCase().includes(split))
-        );
-      acc[findByKey].commits = acc[findByKey].commits + line.commits
+      const findByKey = Object.keys(acc).find((name) =>
+        name
+          .toLowerCase()
+          .split(" ")
+          .some((split) => line.author.toLowerCase().includes(split))
+      );
+      acc[findByKey].commits = acc[findByKey].commits + line.commits;
       return acc;
     }, {});
 
-    console.log("lines after grouping", lines);
+    // Preview
+    console.log("".padEnd(60, "-"));
+    Object.values(lines).forEach((line) => {
+      console.log(
+        chalk
+          .bgHex(randomHexColorCode())
+          .bold(
+            `Author${line.author.padStart(54, ".")}\nCommits${line.commits
+              .toString()
+              .padStart(53, ".")}`
+          )
+      );
+      console.log("".padEnd(60, "-"));
+    });
   });
 }
 
