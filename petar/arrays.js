@@ -2,7 +2,7 @@ Array.prototype.fullyRandomElement = function () {
   return this[Math.floor(Math.random() * this.length)];
 };
 
-const makePerson = (firstName, lastName) => {
+const createDude = (firstName, lastName) => {
   const fullName = `${firstName} ${lastName}`;
 
   return {
@@ -27,17 +27,19 @@ const jobTitles = [
 function run() {
   console.log("We are currently running app called arrays");
 
+  console.log('Another log here!')
+
   const array = [
-    makePerson("Nikolina", "Novakovic"),
-    makePerson("Petar", "Vukmanovic"),
-    makePerson("Stefan", "Dankuc"),
-    makePerson("Aleksandra", "Vukasinovic"),
-    makePerson("Dusan", "Gajic"),
-    makePerson("Milan", "Tesic"),
-    makePerson("Mirko", "Vasic"),
-    makePerson("Igor", "Popovic"),
-    makePerson("Tijana", "Golovic"),
-    makePerson("David", "Mandic"),
+    createDude("Nikolina", "Novakovic"),
+    createDude("Petar", "Vukmanovic"),
+    createDude("Stefan", "Dankuc"),
+    createDude("Aleksandra", "Vukasinovic"),
+    createDude("Dusan", "Gajic"),
+    createDude("Milan", "Tesic"),
+    createDude("Mirko", "Vasic"),
+    createDude("Igor", "Popovic"),
+    createDude("Tijana", "Golovic"),
+    createDude("David", "Mandic"),
   ];
 
   console.log(jobTitles.random());
