@@ -1,0 +1,12 @@
+{
+    "name": "nikolina-inquirer",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "inquirer": "^8.0.0"
+    }
+  }
