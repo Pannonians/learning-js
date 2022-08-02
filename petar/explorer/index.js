@@ -63,9 +63,12 @@ function run() {
       return acc;
     }, {});
 
+    lines = Object.values(lines)
+    lines.sort((a,b) => b.commits - a.commits);
+
     // Preview
     console.log("".padEnd(60, "-"));
-    Object.values(lines).forEach((line) => {
+    lines.forEach((line) => {
       console.log(
         chalk
           .bgHex(randomHexColorCode())
