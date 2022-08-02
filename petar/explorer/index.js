@@ -16,7 +16,6 @@ function run() {
     lines = organizeCommitsByAuthor(lines);
     lines = sortAndMapLines(lines);
 
-    // Preview
     printOutput(lines);
   });
 }
