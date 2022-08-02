@@ -111,7 +111,7 @@ function getGitListOfAuthorsAndCommits(callback) {
  * @param {*} lines - Lines of text
  * @returns {object[]} line - array of objects that have author and commits
  */
-function organizeCommitsByAuthor(lines) {
+function organizeCommitsByAuthorAndRemoveJoinDuplicates(lines) {
   lines = lines.reduce((acc, line) => {
     if (Object.keys(acc).length == 0) {
       acc[line.author] = line;
@@ -159,6 +159,6 @@ module.exports = {
   sanitizeOutput,
   printIntroduction,
   getGitListOfAuthorsAndCommits,
-  organizeCommitsByAuthor,
+  organizeCommitsByAuthorAndRemoveJoinDuplicates,
   sortAndMapLines,
 };

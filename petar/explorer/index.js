@@ -3,7 +3,7 @@ const {
   sanitizeOutput,
   printIntroduction,
   getGitListOfAuthorsAndCommits,
-  organizeCommitsByAuthor,
+  organizeCommitsByAuthorAndRemoveJoinDuplicates,
   sortAndMapLines,
 } = require("./helpers");
 
@@ -13,7 +13,7 @@ function run() {
   var lines;
   getGitListOfAuthorsAndCommits((output) => {
     lines = sanitizeOutput(lines, output);
-    lines = organizeCommitsByAuthor(lines);
+    lines = organizeCommitsByAuthorAndRemoveJoinDuplicates(lines);
     lines = sortAndMapLines(lines);
 
     printOutput(lines);
