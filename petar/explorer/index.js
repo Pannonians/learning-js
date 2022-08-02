@@ -11,8 +11,8 @@ function run() {
   printIntroduction();
 
   var lines;
-  getGitListOfAuthorsAndCommits((stdout) => {
-    lines = sanitizeOutput(lines, stdout);
+  getGitListOfAuthorsAndCommits((output) => {
+    lines = sanitizeOutput(lines, output);
     lines = organizeCommitsByAuthor(lines);
     lines = sortAndMapLines(lines);
 
