@@ -1,6 +1,4 @@
 //Create a new file from where you'll run this app
-
-const inquirer = require('inquirer')
 const chalk = require('chalk');
 
 function run(){
