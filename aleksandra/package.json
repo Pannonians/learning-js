@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "inquirer": "yarn workspace aleksandra-inquirer"
+    "inquirer": "yarn workspace aleksandra-inquirer",
+    "repo-explorer": "yarn workspace aleksandra-repo-explorer"
   },
   "private": true,
-  "workspaces": ["./inquirer"]
+  "workspaces": ["./inquirer", "./repo-explorer"]
 }
 
