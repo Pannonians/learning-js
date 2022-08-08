@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "private":"true",
-  "workspaces": ["./inquirer", "./explorer"]
+  "private": true,
+  "workspaces": [
+    "./inquirer",
+    "./explorer"
+  ]
 }
