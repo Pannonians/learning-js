@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "weather": "weather -c Serbia -C 'Novi Sad'",
-    "inquirer": "yarn workspace petar-inquirer"
+    "inquirer": "yarn workspace petar-inquirer",
+    "async": "yarn workspace async"
   },
   "private": true,
-  "workspaces": ["./inquirer"]
+  "workspaces": ["./inquirer", "./async"]
 }
