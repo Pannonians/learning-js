@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "inquirer": "yarn workspace aleksandra-inquirer",
-    "repo-explorer": "yarn workspace aleksandra-repo-explorer"
+    "repoexplorer": "yarn workspace aleksandra-repoexplorer"
   },
   "private": true,
-  "workspaces": ["./inquirer", "./repo-explorer"]
+  "workspaces": ["./inquirer", "./repoexplorer"]
 }
 
