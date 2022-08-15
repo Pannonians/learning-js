@@ -102,6 +102,8 @@ exec("ls -la", (error, stdout, stderr) => {
 
 - Ensure you have installed at least Node.js v14.8 or higher
 - Create a new workspace called "smile" for your individual folders
+- Import library called "axios"
+- Figure out how to perform "get" request using axios based on their documentation
 - Fetch the data from this endpoint:
 ```
 https://gist.githubusercontent.com/VPetar/e1cd462371d438ff863e09983072007b/raw/52087f314f4f763ae0a81fcb9f340bf0a1f2a41a/json
