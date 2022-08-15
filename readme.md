@@ -109,4 +109,4 @@ exec("ls -la", (error, stdout, stderr) => {
 https://gist.githubusercontent.com/VPetar/e1cd462371d438ff863e09983072007b/raw/52087f314f4f763ae0a81fcb9f340bf0a1f2a41a/json
 ```
 - Figure out how command line arguments work (process.argv)
-- Be able to find a smiley based on keywords, and console log it's symbol
+- Be able to find a smiley based on keywords, and console log it's symbol, if there's more than one, console log them all in new lines
