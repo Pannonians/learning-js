@@ -97,3 +97,13 @@ exec("ls -la", (error, stdout, stderr) => {
     console.log(`stdout: ${stdout}`);
 });
 ```
+
+## Homework "Smile!"
+
+- Create a new workspace called "smile" for your individual folders
+- Fetch the data from this endpoint:
+```
+https://gist.githubusercontent.com/VPetar/e1cd462371d438ff863e09983072007b/raw/52087f314f4f763ae0a81fcb9f340bf0a1f2a41a/json
+```
+- Figure out how command line arguments work (process.argv)
+- Be able to find a smiley based on keywords, and console log it's symbol
