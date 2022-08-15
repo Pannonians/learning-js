@@ -100,6 +100,7 @@ exec("ls -la", (error, stdout, stderr) => {
 
 ## Homework "Smile!"
 
+- Ensure you have installed at least Node.js v14.8 or higher
 - Create a new workspace called "smile" for your individual folders
 - Fetch the data from this endpoint:
 ```
