@@ -10,6 +10,12 @@
     "smile": "yarn workspace smile"
   },
   "private": true,
-  "workspaces": ["./inquirer", "./repoexplorer", "./smile"]
+  "workspaces": [
+    "./inquirer",
+    "./repoexplorer",
+    "./smile"
+  ],
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
-
