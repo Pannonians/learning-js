@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node index.js",
     "inquirer": "yarn workspace aleksandra-inquirer",
-    "repoexplorer": "yarn workspace aleksandra-repoexplorer"
+    "repoexplorer": "yarn workspace aleksandra-repoexplorer",
+    "smile": "yarn workspace smile"
   },
   "private": true,
-  "workspaces": ["./inquirer", "./repoexplorer"]
+  "workspaces": ["./inquirer", "./repoexplorer", "./smile"]
 }
 
