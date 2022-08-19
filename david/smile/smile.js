@@ -24,7 +24,7 @@ async function run() {
     return allSmiles.filter((smile) => smile.keywords.includes(value));
   }
   var list = search(...arguments);
-  console.log("Filtered list: ", list);
+  console.log("Filtered list: ", list.map((listitem) => listitem.symbol));
 }
 
 module.exports = {
