@@ -6,12 +6,20 @@
   "scripts": {
     "start": "node index.js",
     "inquirer": "yarn workspace david-inquirer",
-    "david-repoexplorer": "yarn workspace david-repoexplorer"
+    "david-repoexplorer": "yarn workspace david-repoexplorer",
+    "david-smile": "yarn workspace david-smile"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "private": true,
-  "workspaces": ["./inquirer", "./repoexplorer"]
+  "workspaces": [
+    "./inquirer",
+    "./repoexplorer",
+    "./smile"
+  ],
+  "dependencies": {
+    "yargs": "^17.5.1"
+  }
 }
