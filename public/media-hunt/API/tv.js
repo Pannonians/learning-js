@@ -1,8 +1,7 @@
-const ROOT = {
+export default {
   get: {
     tv: {
       url: (id) => `/tv/${id}`,
     },
   },
-}
-export default ROOT;
+};

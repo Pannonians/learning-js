@@ -1,8 +1,7 @@
-const ROOT = {
+export default {
   get: {
     configuration: {
       url: "/configuration",
     },
   },
-}
-export default ROOT;
+};
