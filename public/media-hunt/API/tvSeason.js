@@ -2,8 +2,8 @@ const ROOT = "/tvSeason";
 
 export default {
   get: {
-    show: {
-      url: (id) => `${ROOT}/${id}`,
+    tvSeason: {
+      url: (id, season_number) => `/tv/${id}/season/${season_number}`,
     },
   },
 };

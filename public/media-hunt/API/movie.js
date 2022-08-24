@@ -2,8 +2,8 @@ const ROOT = "/movie";
 
 export default {
   get: {
-    show: {
-      url: (id) => `${ROOT}/${id}`,
+    movie: {
+      url: (id) => `/movie/${id}`,
     },
   },
 };
