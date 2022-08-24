@@ -1,9 +1,8 @@
-const ROOT = "/movie";
-
-export default {
+const ROOT = {
   get: {
     movie: {
       url: (id) => `/movie/${id}`,
     },
   },
-};
+}
+export default ROOT;
