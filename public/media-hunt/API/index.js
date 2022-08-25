@@ -1,11 +1,5 @@
-import configuration from './configuration';
-import movie from './movie';
-import tv from './tv';
-import tvSeason from './tvSeason';
+import configuration from "./configuration";
+import movie from "./movie";
+import tv from "./tv";
 
-export {
-    configuration,
-    movie,
-    tv,
-    tvSeason
-};
+export { configuration, movie, tv };
