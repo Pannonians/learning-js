@@ -1,1 +1,3 @@
-console.log("Media hunt");
+const app = require("./mediahunt.js");
+
+app.run();
