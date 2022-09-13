@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const args = process.argv.slice(2);
 
 const commands = {
@@ -25,3 +26,6 @@ try {
 } catch (error) {
   console.log("Command not found");
 }
+=======
+const app = require("./mediahunt.js");
+>>>>>>> fffec66 (66 index.js adjusted)
