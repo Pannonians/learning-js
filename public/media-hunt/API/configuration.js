@@ -1,4 +1,4 @@
-export default {
+module.export = {
   get: {
     configuration: {
       url: "/configuration",

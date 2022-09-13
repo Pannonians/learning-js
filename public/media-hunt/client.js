@@ -6,6 +6,7 @@ const instance = axios.create({
 });
 
 instance.default.headers.common = {
-  authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzEwZDg2NTM4OTkzYmNhMjNlNWUyOWNkYjk3NGFlNCIsInN1YiI6IjVjMWM5OTQwOTI1MTQxMjdmODRlMWVmNSIsInNjb3BlcyI6WyJh"
+  authorization:
+    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzEwZDg2NTM4OTkzYmNhMjNlNWUyOWNkYjk3NGFlNCIsInN1YiI6IjVjMWM5OTQwOTI1MTQxMjdmODRlMWVmNSIsInNjb3BlcyI6WyJh",
 };
 module.exports = { instance };
