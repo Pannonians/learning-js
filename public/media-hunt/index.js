@@ -4,13 +4,13 @@ const commands = {
   configuration: () => require("./commands/configuration").run(),
   movies: () => require("./commands/movies/movies").run(),
   movie: (id) => require("./commands/movies/movie").run(id),
-  movieGanres: () => require("./commands/movies/ganres").run(),
+  movieGenres: () => require("./commands/movies/genres").run(),
   movieReviewes: (id) => require("./commands/movies/reviews").run(id),
   movieTopRated: () => require("./commands/movies/toprated").run(),
-  TVs: () => require("./commands/tv/tvs").run(),
+  tvs: () => require("./commands/tv/tvs").run(),
   tv: (id) => require("./commands/tv/tv").run(id),
   tvTopRated: () => require("./commands/tv/toprated").run(),
-  tvGanres: () => require("./commands/tv/ganres").run(),
+  tvGenres: () => require("./commands/tv/genres").run(),
   tvReviews: (id) => require("./commands/tv/reviews").run(id),
   tvSeasons: (id, season_number) => require("./commands/tv/tvseasons").run(id, season_number),
 };
@@ -21,7 +21,7 @@ if (args.length === 0) {
 }
 
 try {
-  commands[args[0]](args[1]);
+  commands[args[0]](...args.slice(1));
 } catch (error) {
   console.log("Command not found");
 }
