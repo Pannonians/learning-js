@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 828100d (66 env.example renamed and index.js adjusted)
 const args = process.argv.slice(2);
 
 const commands = {
@@ -29,9 +25,3 @@ try {
 } catch (error) {
   console.log("Command not found");
 }
-<<<<<<< HEAD
-=======
-const app = require("./mediahunt.js");
->>>>>>> fffec66 (66 index.js adjusted)
-=======
->>>>>>> 828100d (66 env.example renamed and index.js adjusted)
