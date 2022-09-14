@@ -7,7 +7,8 @@
     "start": "node index.js",
     "inquirer": "yarn workspace david-inquirer",
     "david-repoexplorer": "yarn workspace david-repoexplorer",
-    "david-smile": "yarn workspace david-smile"
+    "david-smile": "yarn workspace david-smile",
+    "david-movie": "yarn workspace david-movie"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +18,8 @@
   "workspaces": [
     "./inquirer",
     "./repoexplorer",
-    "./smile"
+    "./smile",
+    "./media-hunt"
   ],
   "dependencies": {
     "yargs": "^17.5.1"
