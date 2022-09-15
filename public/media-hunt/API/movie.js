@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   get: {
     discover: {
       url: "/discover/movie",

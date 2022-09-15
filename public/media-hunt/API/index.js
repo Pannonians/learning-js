@@ -1,5 +1,5 @@
-import configuration from "./configuration";
-import movie from "./movie";
-import tv from "./tv";
+const configuration = require("./configuration");
+const movie = require("./movie");
+const tv = require("./tv");
 
-export { configuration, movie, tv };
+module.exports = { configuration, movie, tv };
