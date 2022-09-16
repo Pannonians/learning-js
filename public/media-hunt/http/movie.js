@@ -1,46 +1,55 @@
 const { movie } = require("../API/index");
 const { instance } = require("../client");
 
-const getMoviesDiscover = instance
-  .get(movie.movie.get.discover.url)
-  .then((result) => {
-    console.log(result.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+async function getMoviesDiscover() {
+  try {
+    const { data } = await instance.get(movie.get.discover.url);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-const getMovieGenres = instance
-  .get(movie.movie.get.genres.url)
-  .then((result) => {
-    console.log(result.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+async function getMovieGenres() {
+  try {
+    const { data } = await instance.get(movie.get.genres.url);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-const getMovieTopRated = instance
-  .get(movie.movie.get.topRated.url)
-  .then((result) => {
-    console.log(result.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+async function getMovieTopRated() {
+  try {
+    const { data } = await instance.get(movie.get.topRated.url);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-const getMovie = async (id) =>
-  await instance
-    .get(movie.movie.get.movie.url(id))
-    .then((result) => {
-      console.log(result.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+async function getMovie(id) {
+  try {
+    const { data } = await instance.get(movie.get.movie.url(id));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getMovieReviews(id) {
+  try {
+    const { data } = await instance.get(movie.get.reviews.url(id));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 module.exports = {
   getMoviesDiscover,
   getMovieGenres,
   getMovieTopRated,
   getMovie,
+  getMovieReviews,
 };
