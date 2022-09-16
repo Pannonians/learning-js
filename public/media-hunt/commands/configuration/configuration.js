@@ -1,6 +1,7 @@
+const { getConfig } = require("../http/configuration");
 
 const run = () => {
-    console.log("Configuration");
+    console.log(getConfig);
 }
 
 module.exports = { run };

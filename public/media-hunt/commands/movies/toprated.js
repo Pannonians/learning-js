@@ -1,6 +1,7 @@
+const { getMovieTopRated } = require("../http/movies");
 
 const run = () => {
-    console.log("Top rated movies");
+    console.log(getMovieTopRated);
 }
 
 module.exports = { run };

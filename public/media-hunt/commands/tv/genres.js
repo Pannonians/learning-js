@@ -1,5 +1,7 @@
+const { getTvDiscover } = require("../http/tv");
+
 const run = () => {
-  console.log("TV genres");
+  console.log(getTvDiscover);
 };
 
 module.exports = { run };
