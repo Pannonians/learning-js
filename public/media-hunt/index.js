@@ -1,3 +1,4 @@
+const helper = require("./help");
 const args = process.argv.slice(2);
 
 const commands = {
@@ -12,11 +13,13 @@ const commands = {
   tvTopRated: () => require("./commands/tv/toprated").run(),
   tvGenres: () => require("./commands/tv/genres").run(),
   tvReviews: (id) => require("./commands/tv/reviews").run(id),
-  tvSeasons: (id, season_number) => require("./commands/tv/tvseasons").run(id, season_number),
+  tvSeasons: (id, season_number) =>
+    require("./commands/tv/tvseasons").run(id, season_number),
+  "--help": () => helper.run(),
 };
 
 if (args.length === 0) {
-  console.log("Helper");
+  helper.run();
   process.exit(0);
 }
 
@@ -24,4 +27,4 @@ try {
   commands[args[0]](...args.slice(1));
 } catch (error) {
   console.log("Command not found");
-};
+}
