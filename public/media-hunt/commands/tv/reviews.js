@@ -1,4 +1,4 @@
-const { getTvReviews } = require("../http/tv");
+const { getTvReviews } = require("../../http/tv");
 
 const run = (id) => {
     console.log(getTvReviews, id);

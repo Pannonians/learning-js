@@ -1,4 +1,4 @@
-const { getTvTopRated } = require("../http/tv");
+const { getTvTopRated } = require("../../http/tv");
 
 const run = () => {
     console.log(getTvTopRated);

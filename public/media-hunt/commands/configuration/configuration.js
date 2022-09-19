@@ -1,4 +1,4 @@
-const { getConfig } = require("../http/configuration");
+const { getConfig } = require("../../http/configuration");
 
 const run = () => {
     console.log(getConfig);
