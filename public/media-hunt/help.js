@@ -2,7 +2,7 @@ const { Console } = require('console');
 const { Transform } = require('stream'); 
 
 const run = () => {
-    console.log("Sve postojece komande:");
+    console.log("All existing commands:");
 
     function table(input) {
         const ts = new Transform({ transform(chunk, enc, cb) { cb(null, chunk) } })
