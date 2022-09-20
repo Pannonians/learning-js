@@ -1,6 +1,7 @@
+const { getMoviesDiscover } = require("../../http/movies");
 
 const run = () => {
-    console.log("Movies");
+    console.log(getMoviesDiscover);
 }
 
 module.exports = { run };

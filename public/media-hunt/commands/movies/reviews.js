@@ -1,6 +1,7 @@
+const { getMovieReviews } = require("../../http/movies");
 
 const run = (id) => {
-    console.log("Movie review by id: ", id);
+    console.log(getMovieReviews, id);
 }
 
 module.exports = { run };

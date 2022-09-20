@@ -1,5 +1,7 @@
+const { getMovieGenres } = require("../../http/movies");
+
 const run = () => {
-  console.log("Movie genres");
+  console.log(getMovieGenres);
 };
 
 module.exports = { run };
