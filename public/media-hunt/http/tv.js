@@ -45,10 +45,20 @@ async function getTvReviews(id) {
   }
 }
 
+async function getTvCast(id) {
+  try {
+    const { data } = await instance.get(tv.get.cast.url(id));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getTvDiscover,
   getTvGenres,
   getTvTopRated,
   getTv,
   getTvReviews,
+  getTvCast
 };

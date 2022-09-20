@@ -15,5 +15,8 @@ module.exports = {
     reviews: {
       url: (id) => `/movie/${id}/reviews`,
     },
+    cast: {
+      url: (id) => `/movie/${id}/credits`,
+    }
   },
 };

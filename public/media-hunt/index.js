@@ -8,11 +8,13 @@ const commands = {
   movieGenres: () => require("./commands/movies/genres").run(),
   movieReviewes: (id) => require("./commands/movies/reviews").run(id),
   movieTopRated: () => require("./commands/movies/toprated").run(),
+  movieCast: (id) => require("./commands/movies/cast").run(id),
   tvs: () => require("./commands/tv/tvs").run(),
   tv: (id) => require("./commands/tv/tv").run(id),
   tvTopRated: () => require("./commands/tv/toprated").run(),
   tvGenres: () => require("./commands/tv/genres").run(),
   tvReviews: (id) => require("./commands/tv/reviews").run(id),
+  tvCast: (id) => require("./commands/tv/cast").run(id),
   tvSeasons: (id, season_number) =>
     require("./commands/tv/tvseasons").run(id, season_number),
   "--help": () => helper.run(),
