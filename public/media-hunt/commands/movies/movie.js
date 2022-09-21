@@ -5,11 +5,12 @@ const run = async (id) => {
   const getMovieByIdResultData = JSON.stringify(getMovieByIdResult);
 
   const fs = require("fs");
-  fs.writeFile("movies.json", getMovieByIdResultData, function (err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log("JSON data is saved.");
+
+  fs.readFile('/media-hunt/movies', function (err, data) {
+  if (err) throw err;
+  if(data.indexOf(`id:${id}`) >= 0){
+   console.log(data) 
+  }
   });
 };
 

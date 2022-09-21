@@ -3,11 +3,11 @@ require("dotenv").config();
 
 const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
-  timeout: 5000,
+  timeout: 2500,
 });
 
 instance.defaults.headers.common = {
-  Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzEwZDg2NTM4OTkzYmNhMjNlNWUyOWNkYjk3NGFlNCIsInN1YiI6IjVjMWM5OTQwOTI1MTQxMjdmODRlMWVmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.csMyKzkblGa8r-2EPryAbFrm_k5LcOZae1tgvTAXxFY',
+  Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`,
 };
 
 module.exports = { instance };
