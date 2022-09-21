@@ -22,7 +22,6 @@ if (args.length === 0) {
   helper.run();
   process.exit(0);
 }
-
 try {
   commands[args[0]](...args.slice(1));
 } catch (error) {

@@ -1,7 +1,16 @@
 const { getTvGenres } = require("../../http/tv");
 
-const run = () => {
-  console.log(getTvGenres);
+const run = async () => {
+  const getTvGenresResult = await getTvGenres();
+  const getTvGenresResultData = JSON.stringify(getTvGenresResult);
+
+  const fs = require('fs');
+  fs.writeFile('tv.json', getTvGenresResultData, function(err){
+    if(err){
+      console.log(err);
+    }
+    console.log('JSON data is saved.');
+  })
 };
 
 module.exports = { run };
