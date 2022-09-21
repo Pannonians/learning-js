@@ -52,10 +52,22 @@ const printStuffToScreen = (normalization, nameCharacterResponse) => {
     normalization.year,
     normalization.description,
     normalization.image,
-    normalization.review,
+    normalization.review + " " + showStars(normalization.review / 2),
     nameCharacterResponse,
   ]);
 };
+
+function showStars(numberOfStars) {
+  if (numberOfStars >= 1 && numberOfStars <= 1.4) return "✡️";
+  if (numberOfStars > 1.4 && numberOfStars <= 1.9) return "✡️ ⭐";
+  if (numberOfStars > 1.9 && numberOfStars <= 2.4) return "✡️ ✡️";
+  if (numberOfStars > 2.4 && numberOfStars <= 2.9) return "✡️ ✡️ ⭐";
+  if (numberOfStars > 2.9 && numberOfStars <= 3.4) return "✡️ ✡️ ✡️";
+  if (numberOfStars > 3.4 && numberOfStars <= 3.9) return "✡️ ✡️ ✡️ ⭐";
+  if (numberOfStars > 3.9 && numberOfStars <= 4.4) return "✡️ ✡️ ✡️ ✡️";
+  if (numberOfStars > 4.4 && numberOfStars < 5) return "✡️ ✡️ ✡️ ✡️ ⭐";
+  if (numberOfStars === 5) return "✡️ ✡️ ✡️ ✡️ ✡️";
+}
 
 printStuffToScreen(
   normalization({
