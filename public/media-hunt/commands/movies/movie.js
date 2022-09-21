@@ -6,11 +6,18 @@ const run = async (id) => {
 
   const fs = require("fs");
 
-  fs.readFile('/media-hunt/movies', function (err, data) {
-  if (err) throw err;
-  if(data.indexOf(`id:${id}`) >= 0){
-   console.log(data) 
-  }
+  fs.readFile("./movies.json", function (err, data) {
+    if (err) throw err;
+    if (data.includes(`id:${id}`) >= 0) {
+      console.log(getMovieByIdResult);
+    } else {
+      fs.writeFile("movies.json", getMovieByIdResultData, function (err) {
+        if (err) {
+          console.log(err);
+        }
+        console.log("Movie data is saved.");
+      });
+    }
   });
 };
 

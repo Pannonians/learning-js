@@ -9,7 +9,7 @@ const run = async (id) => {
         if (err){
             console.log(err);
         }
-        console.log('JSON data is saved.');
+        console.log('TV reviews data is saved.');
     })
 }
 
