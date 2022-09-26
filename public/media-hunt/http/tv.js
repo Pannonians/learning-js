@@ -54,11 +54,21 @@ async function getTvCast(id) {
   }
 }
 
+async function getTvSeasons(id, season_number) {
+  try {
+    const { data } = await instance.get(tv.get.tvSeason.url(id, season_number));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getTvDiscover,
   getTvGenres,
   getTvTopRated,
   getTv,
   getTvReviews,
-  getTvCast
+  getTvCast,
+  getTvSeasons,
 };

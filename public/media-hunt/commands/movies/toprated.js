@@ -1,7 +1,8 @@
-const { getMovieTopRated } = require("../../http/movies");
+const { getMovieTopRated } = require("../../http/movie");
 
-const run = () => {
-    console.log(getMovieTopRated);
-}
+const run = async () => {
+  const data = await getMovieTopRated();
+  console.log(data);
+};
 
 module.exports = { run };

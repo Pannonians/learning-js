@@ -1,7 +1,8 @@
 const { getTvCast } = require("../../http/tv");
 
-const run = () => {
-  console.log(getTvCast);
+const run = async (id) => {
+  const data = await getTvCast(id);
+  console.log(data, id);
 };
 
 module.exports = { run };

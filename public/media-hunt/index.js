@@ -2,7 +2,8 @@ const helper = require("./help");
 const args = process.argv.slice(2);
 
 const commands = {
-  configuration: () => require("./commands/configuration/configuration").run(),
+  configuration: () =>
+    require("./commands/configuration/configuration").run(),
   movies: () => require("./commands/movies/movies").run(),
   movie: (id) => require("./commands/movies/movie").run(id),
   movieGenres: () => require("./commands/movies/genres").run(),
