@@ -11,7 +11,7 @@ const run = async (id, season_number) => {
         if (data.includes(`id:${id}`) >= 0) {
           console.log(getTvDiscoverResult);
         } else {
-          fs.writeFile("movies.json", getTvDiscoverResultData, function (err) {
+          fs.appendFile('savedData.json', getTvDiscoverResultData, function (err) {
             if (err) {
               console.log(err);
             }

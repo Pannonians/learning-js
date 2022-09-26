@@ -5,7 +5,7 @@ const run = async () => {
   const getMovieGenresResultData = JSON.stringify(getMovieGenresResult);
 
   const fs = require("fs");
-  fs.writeFile("movies.json", getMovieGenresResultData, function (err) {
+  fs.appendFile('savedData.json', getMovieGenresResultData, function (err) {
     if (err) {
       console.log(err);
     }

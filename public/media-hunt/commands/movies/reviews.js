@@ -12,7 +12,7 @@ const run = async (id) => {
     if (data.includes(`id:${id}`) >= 0) {
       console.log(getMovieReviewsResult);
     } else {
-      fs.writeFile("movies.json", getMovieReviewsResultData, function (err) {
+      fs.appendFile('savedData.json', getMovieReviewsResultData, function (err) {
         if (err) {
           console.log(err);
         }

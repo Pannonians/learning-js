@@ -5,7 +5,7 @@ const run = async () => {
     const getTvDiscoverResultData = JSON.stringify(getTvDiscoverResult);
 
     const fs = require('fs');
-    fs.writeFile('tv.json', getTvDiscoverResultData, function(err){
+    fs.appendFile('savedData.json', getTvDiscoverResultData, function(err){
         if (err){
             console.log(err);
         }

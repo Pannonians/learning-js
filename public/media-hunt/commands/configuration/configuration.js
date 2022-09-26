@@ -1,17 +1,21 @@
-const { instance } = require("../../client");
 const { getConfig } = require("../../http/configuration");
+const { containsConfig } = require("./configurationCheck");
 
 const run = async () => {
-  const getConfigResult = await getConfig();
-  const getConfigResultData = JSON.stringify(getConfigResult);
+  if (await containsConfig) {
+    console.log("Configuration data is saved already.");
+  } else {
+    const getConfigResult = await getConfig();
+    const getConfigResultData = JSON.stringify(getConfigResult);
 
-  const fs = require("fs");
-  fs.writeFile("configuration.json", getConfigResultData, function (err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log("JSON data is saved.");
-  });
+    const fs = require("fs");
+    fs.appendFile("savedData.json", getConfigResultData, function (err) {
+      if (err) {
+        console.log(err);
+      }
+      console.log("Configuration data is saved.");
+    });
+  }
 };
 
 module.exports = { run };
