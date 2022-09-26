@@ -23,8 +23,8 @@ const actors = creditsResponse.cast.map((actorAndCharacter) => {
 //this is a logic for stars calculation
 function halfStar(review) {
   const smallStar = "⭐";
-  if ((result = review - Math.floor(review) >= 0.5)) return smallStar;
-  return "";
+  if ((review - Math.floor(review) >= 0.5)) return smallStar;
+  return {};
 }
 
 function showStars(review) {
