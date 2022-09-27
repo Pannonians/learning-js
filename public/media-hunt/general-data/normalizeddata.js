@@ -1,30 +1,33 @@
-//normalization of response
+const { getTvCast } = require("../http/tv");
+const { getMovieCast } = require("../http/movie");
 
-const normalization = (data, actors) => ({
+const normalization = async (data) => ({
   title: data.original_name || data.original_title,
   year: data.first_air_date || data.release_date,
   description: data.overview,
   image: data.poster_path,
   review: data.vote_average + " " + showStars(data.vote_average),
-  cast: actors,
+  cast: await actors(data.id, !!data.seasons),
 });
 
-//this is a response that gives us cast/credits
-const creditsResponse = {};
+const creditsResponse = async (id, hasSeasons) =>
+  hasSeasons ? await getTvCast(id) : await getMovieCast(id);
 
-//this is a logic that returs actors and their characters
-const actors = creditsResponse.cast.map((actorAndCharacter) => {
-  tvActors = {
-    name: actorAndCharacter.name,
-    character: actorAndCharacter.character,
-  };
-  return tvActors;
-});
-//this is a logic for stars calculation
+const actors = async (id, hasSeasons) => {
+  const resp = await creditsResponse(id, hasSeasons);
+  return resp.cast.map((actorAndCharacter) => {
+    tvActors = {
+      name: actorAndCharacter.name,
+      character: actorAndCharacter.character,
+    };
+    return tvActors;
+  });
+};
+
 function halfStar(review) {
   const smallStar = "⭐";
-  if ((review - Math.floor(review) >= 0.5)) return smallStar;
-  return {};
+  if (review - Math.floor(review) >= 0.5) return smallStar;
+  return "";
 }
 
 function showStars(review) {
@@ -32,19 +35,5 @@ function showStars(review) {
   const wholeStar = bigStar.repeat(Math.floor(review / 2));
   return wholeStar + halfStar(review);
 }
-
-//this is where response is normalized and logged
-const logNormalization = (normalization) => {
-  console.log([
-    normalization.title,
-    normalization.year,
-    normalization.description,
-    normalization.image,
-    normalization.review,
-    normalization.cast,
-  ]);
-};
-
-logNormalization(normalization(actors));
 
 module.exports = { normalization };
