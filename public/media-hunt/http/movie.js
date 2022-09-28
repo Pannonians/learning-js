@@ -46,10 +46,20 @@ async function getMovieReviews(id) {
   }
 }
 
+async function getMovieCast(id) {
+  try {
+    const { data } = await instance.get(movie.get.cast.url(id));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getMoviesDiscover,
   getMovieGenres,
   getMovieTopRated,
   getMovie,
   getMovieReviews,
+  getMovieCast,
 };
