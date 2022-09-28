@@ -1,4 +1,4 @@
-const { getMovieGenres } = require("../../http/movie");
+const { getMovieGenres } = require("../../http/movies");
 
 const run = () => {
   console.log(getMovieGenres);

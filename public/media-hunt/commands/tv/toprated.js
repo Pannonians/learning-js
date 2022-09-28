@@ -1,7 +1,7 @@
 const { getTvTopRated } = require("../../http/tv");
 
 const run = () => {
-  console.log(getTvTopRated);
-};
+    console.log(getTvTopRated);
+}
 
 module.exports = { run };
