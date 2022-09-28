@@ -1,8 +1,7 @@
 const { getMoviesDiscover } = require("../../http/movie");
 
-const run = async () => {
-    const data = await getMoviesDiscover();
-    console.log(data)
-}
+const run = () => {
+  console.log(getMoviesDiscover);
+};
 
 module.exports = { run };

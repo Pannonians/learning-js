@@ -1,8 +1,7 @@
 const { getTvTopRated } = require("../../http/tv");
 
-const run = async () => {
-  const data = await getTvTopRated();
-  console.log(data);
+const run = () => {
+  console.log(getTvTopRated);
 };
 
 module.exports = { run };

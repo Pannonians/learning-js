@@ -1,8 +1,7 @@
 const { getTvDiscover } = require("../../http/tv");
 
-const run = async () => {
-  const data = await getTvDiscover();
-  console.log(data);
+const run = () => {
+  console.log(getTvDiscover);
 };
 
 module.exports = { run };
