@@ -29,5 +29,5 @@ if (args.length === 0) {
 try {
   commands[args[0]](...args.slice(1));
 } catch (error) {
-  console.log("Command not found");
+  console.log(error);
 }

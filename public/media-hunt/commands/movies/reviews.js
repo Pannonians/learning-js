@@ -1,7 +1,8 @@
-const { getMovieReviews } = require("../../http/movies");
+const { getMovieReviews } = require("../../http/movie");
 
-const run = (id) => {
-    console.log(getMovieReviews, id);
-}
+const run = async (id) => {
+    const data = await getMovieReviews(id);
+    console.log(data, id);
+  };
 
 module.exports = { run };

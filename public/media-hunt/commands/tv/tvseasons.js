@@ -1,7 +1,8 @@
 const { getTvSeasons } = require("../../http/tv");
 
-const run = (id, season_number) => {
-    console.log(getTvSeasons, id, season_number);
-}
+const run = async (id, season_number) => {
+    const data = await getTvSeasons(id, season_number);
+    console.log(data, id, season_number);
+  };
 
 module.exports = { run };

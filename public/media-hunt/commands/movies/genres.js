@@ -1,7 +1,8 @@
-const { getMovieGenres } = require("../../http/movies");
+const { getMovieGenres } = require("../../http/movie");
 
-const run = () => {
-  console.log(getMovieGenres);
+const run = async () => {
+  const data = await getMovieGenres();
+  console.log(data);
 };
 
 module.exports = { run };
