@@ -1,13 +1,19 @@
 const imageToAscii = require("image-to-ascii");
 const figlet = require("figlet");
 const { getConfig } = require("../http/configuration");
-const chalk = require ("chalk")
+const chalk = require("chalk");
 
 const printStuffToScreen = async (data) => ({
   year: data.year,
   description: data.description,
   review: data.review,
-  cast: JSON.stringify(data.cast).split(","),
+  cast: JSON.stringify(
+    data.cast)
+    .replace(/\[|\]/g, "")
+    .replace(/[{()}]/g, "")
+    .replace(/"/g, "")
+    .match(/[^,]+,[^,]+/g)
+    .slice(0, 20),
   image: (await buildPosterUrl()) + data.image,
 });
 
