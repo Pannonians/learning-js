@@ -1,20 +1,48 @@
 const { getConfig } = require("../../http/configuration");
-const { containsConfig } = require("./configurationCheck");
+
+const fs = require("fs");
+const json = "./savedResponse.json";
+const KEY = 'CONFIGURATION: '; 
 
 const run = async () => {
-  if (await containsConfig) {
-    console.log("Configuration data is saved already.");
-  } else {
-    const getConfigResult = await getConfig();
-    const getConfigResultData = JSON.stringify(getConfigResult);
+  var fileExist = fs.existsSync(json);
 
-    const fs = require("fs");
-    fs.appendFile("savedData.json", getConfigResultData, function (err) {
-      if (err) {
+  if (fileExist){
+    var readFile = fs.readFileSync("savedResponse.json", function(err){
+      if(err){
         console.log(err);
       }
-      console.log("Configuration data is saved.");
     });
+    var keyExists = readFile.includes(KEY);
+    console.log(keyExists);
+
+    if(keyExists){
+      console.log("Configuration is already saved!");
+    } else {
+      const getConfigResult = await getConfig();
+      const getConfigResultData = '{' + '"' + KEY + '"' + ':' + '[' + JSON.stringify(getConfigResult) + ']' + '}';
+      
+      fs.appendFile("savedResponse.json", getConfigResultData, function(err){
+        if(err){
+          console.log("Error ", err);
+        } else {
+          console.log("Saved");
+        }
+      });
+    }
+  }
+  
+  else {
+    const getConfigResult1 = await getConfig();
+    const getConfigResultData1 = '{' + '"' + KEY + '"' + ':' + '[' + JSON.stringify(getConfigResult1) + ']' + '}';
+
+    fs.writeFile("savedResponse.json", getConfigResultData1, function(err){
+      if(err){
+        console.log("Error ", err);
+      } else {
+        console.log("Created");
+      }
+    })
   }
 };
 
