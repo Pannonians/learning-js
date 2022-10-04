@@ -3,6 +3,7 @@ const {
   printStuffToScreen,
   titleResponse,
   printImage,
+  buildPosterUrl,
 } = require("../../general-data/printstuftoscreen");
 const { getMovie } = require("../../http/movie");
 const {handleDatabase} = require ("../../database/database");
@@ -21,9 +22,11 @@ const run = async (id) => {
   const data = await getMovie(id);
   const normalized = await normalization(data);
   const printStuff = await printStuffToScreen(normalized);
+  const printImageUrl = await buildPosterUrl (normalized);
   const printTitle = await titleResponse(normalized);
-  await printImage(printStuff);
-  console.log(printTitle, printStuff);
+  await printImage(printImageUrl);
+  console.log(printTitle);
+  console.log(printStuff);
 };
 
 module.exports = { run };
