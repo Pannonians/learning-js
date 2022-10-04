@@ -1,8 +1,19 @@
 const { getTvReviews } = require("../../http/tv");
+const { handleDatabase } = require("../../database/database");
 
 const run = async (id) => {
-    const data = await getTvReviews(id);
-    console.log(data, id);
-  };
+  {
+    let data;
+    if (handleDatabase.checkIfExists()) {
+      data = handleDatabase.getDataByKey();
+    } else {
+      const response = await getTvReviews(id);
+      data = handleDatabase.storeDataByKey(response);
+    }
+    console.log("data here", data);
+  }
+  const data = await getTvReviews(id);
+  console.log(data, id);
+};
 
 module.exports = { run };

@@ -1,8 +1,19 @@
 const { getTvTopRated } = require("../../http/tv");
+const { handleDatabase } = require("../../database/database");
 
 const run = async () => {
-    const data = await getTvTopRated();
-    console.log(data);
-  };
+  {
+    let data;
+    if (handleDatabase.checkIfExists()) {
+      data = handleDatabase.getDataByKey();
+    } else {
+      const response = await getTvTopRated();
+      data = handleDatabase.storeDataByKey(response);
+    }
+    console.log("data here", data);
+  }
+  const data = await getTvTopRated();
+  console.log(data);
+};
 
 module.exports = { run };
