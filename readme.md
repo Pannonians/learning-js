@@ -110,3 +110,18 @@ https://gist.githubusercontent.com/VPetar/e1cd462371d438ff863e09983072007b/raw/5
 ```
 - Figure out how command line arguments work (process.argv)
 - Be able to find a smiley based on keywords, and console log it's symbol, if there's more than one, console log them all in new lines
+
+## Intro to ReactJS
+
+Important things to figure out for tomorrow:
+1. Virtual DOM
+2. JSX
+2. Diffing
+3. Reconsiliation
+4. create-react-app
+
+https://reactjs.org/
+
+Homework:
+1. Read above
+2. Create hello world apps in your folders
