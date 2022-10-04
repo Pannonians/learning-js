@@ -2,16 +2,6 @@ const { getTvDiscover } = require("../../http/tv");
 const { handleDatabase } = require("../../database/database");
 
 const run = async () => {
-  {
-    let data;
-    if (handleDatabase.checkIfExists()) {
-      data = handleDatabase.getDataByKey();
-    } else {
-      const response = await getTvDiscover();
-      data = handleDatabase.storeDataByKey(response);
-    }
-    console.log("data here", data);
-  }
   const data = await getTvDiscover();
   console.log(data);
 };
