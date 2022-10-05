@@ -8,8 +8,9 @@
     "weather": "weather -c Serbia -C 'Novi Sad'",
     "inquirer": "yarn workspace petar-inquirer",
     "async": "yarn workspace async",
-    "explorer": "yarn workspace petar-explorer"
+    "explorer": "yarn workspace petar-explorer",
+    "clock": "yarn workspace clock"
   },
   "private": true,
-  "workspaces": ["./inquirer", "./async", "./explorer"]
+  "workspaces": ["./inquirer", "./async", "./explorer", "./clock"]
 }
