@@ -125,3 +125,9 @@ https://reactjs.org/
 Homework:
 1. Read above
 2. Create hello world apps in your folders
+
+## Homework "React components"
+- What are react components?
+- Components state and declarations, renders, returns
+- Multiple components on screen and their differences
+- useState() and useEffect() hooks
