@@ -9,8 +9,15 @@
     "inquirer": "yarn workspace petar-inquirer",
     "async": "yarn workspace async",
     "explorer": "yarn workspace petar-explorer",
-    "clock": "yarn workspace clock"
+    "clock": "yarn workspace clock",
+    "todos": "yarn workspace todos"
   },
   "private": true,
-  "workspaces": ["./inquirer", "./async", "./explorer", "./clock"]
+  "workspaces": [
+    "./inquirer",
+    "./async",
+    "./explorer",
+    "./clock",
+    "./react-todos"
+  ]
 }
