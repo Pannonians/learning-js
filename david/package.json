@@ -5,12 +5,23 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "inquirer": "yarn workspace david-inquirer"
+    "inquirer": "yarn workspace david-inquirer",
+    "david-repoexplorer": "yarn workspace david-repoexplorer",
+    "david-smile": "yarn workspace david-smile",
+    "david-movie": "yarn workspace david-movie"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "private": true,
-  "workspaces": ["./inquirer"]
+  "workspaces": [
+    "./inquirer",
+    "./repoexplorer",
+    "./smile",
+    "./media-hunt"
+  ],
+  "dependencies": {
+    "yargs": "^17.5.1"
+  }
 }

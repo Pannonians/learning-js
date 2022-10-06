@@ -1,8 +1,9 @@
-Arguments: 
+
   /home/petar/.nvm/versions/node/v14.20.0/bin/node /home/petar/.nvm/versions/node/v14.20.0/bin/yarn nikolina explorer start
 
 PATH: 
   /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/petar/.rbenv/shims:/home/petar/.rbenv/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/petar/.nvm/versions/node/v14.20.0/bin:/home/petar/.rbenv/shims:/home/petar/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
 
 Yarn version: 
   1.22.19
@@ -13,13 +14,12 @@ Node version:
 Platform: 
   linux x64
 
-Trace: 
-  SyntaxError: /home/petar/development/github/learning-js/package.json: Unexpected string in JSON at position 379
+  SyntaxError: /home/david_mandic/development/learning-js/package.json: Unexpected string in JSON at position 379
       at JSON.parse (<anonymous>)
-      at /home/petar/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:1629:59
+      at /home/david_mandic/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:1629:59
       at Generator.next (<anonymous>)
-      at step (/home/petar/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /home/petar/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:321:13
+      at step (/home/david_mandic/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /home/david_mandic/.nvm/versions/node/v14.20.0/lib/node_modules/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {

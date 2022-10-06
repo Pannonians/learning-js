@@ -1,0 +1,16 @@
+{
+  "name": "media-hunt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "chalk": "4.1.2",
+    "dotenv": "^16.0.2",
+    "figlet": "^1.5.2",
+    "image-to-ascii": "3.0.13"
+  }
+}

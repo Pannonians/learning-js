@@ -5,8 +5,6 @@
 //const app = require("./arraysreduce");
 //const app = require("./strings");
 //const app = require("./reliableCars");
-const app = require("./todo");
-
-
+const app = require("./practice");
 
 app.run();

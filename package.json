@@ -2,7 +2,7 @@
   "name": "learning-js",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["petar", "aleksandra", "nikolina", "david"],
+  "workspaces": ["petar", "aleksandra", "nikolina", "david", "public/media-hunt"],
   "description": "**Shortcuts and Most used commands in Linux**",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "petar": "yarn workspace petar",
     "aleksandra": "yarn workspace aleksandra",
     "nikolina": "yarn workspace nikolina",
-    "david": "yarn workspace david"
+    "david": "yarn workspace david",
+    "public/media-hunt": "yarn workspace media-hunt"
   },
   "repository": {
     "type": "git",
