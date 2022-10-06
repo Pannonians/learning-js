@@ -131,3 +131,8 @@ Homework:
 - Components state and declarations, renders, returns
 - Multiple components on screen and their differences
 - useState() and useEffect() hooks
+
+## Homework "Hooks!"
+- ponoviti yarn i yarn workspaces
+- useState
+- useEffect iz petar/todos
