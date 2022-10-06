@@ -1,19 +1,21 @@
 {
-    "name": "nikolina",
-    "version": "v1.22.19",
-    "description": "learning-js",
-    "main": "index.js",
-    "repository": "https://github.com/Pannonians/learning-js",
-    "author": "Petar Vukmanovic",
-    "license": "MIT",
-    "scripts": {
-      "start": "node index.js",
-      "inquirer": "yarn workspace nikolina-inquirer"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "private":"true",
-    "workspaces": ["./inquirer"]
-  }
+  "name": "nikolina",
+  "version": "v1.22.19",
+  "description": "learning-js",
+  "main": "index.js",
+  "repository": "https://github.com/Pannonians/learning-js",
+  "scripts": {
+    "start": "node index.js",
+    "inquirer": "yarn workspace nikolina-inquirer",
+    "explorer": "yarn workspace explorer"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "private": true,
+  "workspaces": [
+    "./inquirer",
+    "./explorer"
+  ]
+}
