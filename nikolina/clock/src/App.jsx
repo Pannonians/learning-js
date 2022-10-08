@@ -8,6 +8,9 @@ const Clock = ({date}) => {
 function App() {
   const [date, setDate] = useState(new Date());
 
+  //ovo ce biti neka promena
+  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setDate(new Date());
