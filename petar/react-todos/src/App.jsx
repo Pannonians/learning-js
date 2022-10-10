@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const Todo = ({ text }) => {
+const ALL_TODOS = "all_todos"
+
+const Todo = ({ text, handleDelete }) => {
   return (
-    <div
+    <button
+      type="button"
       className="qweqwe"
-      style={{ fontSize: 14, marginTop: 12, color: 'red' }}
+      style={{ fontSize: 14, marginTop: 12, color: 'red', cursor: 'pointer' }}
+      onClick={() => {
+        handleDelete(text)
+      }}
     >
       {text}
-    </div>
+    </button>
   )
 }
 
@@ -54,7 +60,7 @@ const Greeting = ({ setName }) => {
 
 function App() {
   const [newTodo, setNewTodo] = useState('')
-  const [allTodos, setAllTodos] = useState([])
+  const [allTodos, setAllTodos] = useState(null)
 
   const [clickSaveTodo, setClickSaveTodo] = useState(false)
 
@@ -66,6 +72,25 @@ function App() {
       setClickSaveTodo(false)
     }
   }, [allTodos, clickSaveTodo, newTodo])
+  
+  useEffect(() => {
+    const allTodosFromLocalStorage = localStorage.getItem(ALL_TODOS);
+    if (!allTodosFromLocalStorage) {
+      setAllTodos([]);
+    } else {
+      setAllTodos(JSON.parse(allTodosFromLocalStorage))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (allTodos) {
+      localStorage.setItem(ALL_TODOS, JSON.stringify(allTodos))
+    }
+  }, [allTodos])
+
+  const handleDelete = (todo) => {
+    setAllTodos(allTodos.filter(t => t !== todo))
+  }
 
   return (
     <div className="App">
@@ -77,7 +102,7 @@ function App() {
             <Button setClickSaveTodo={setClickSaveTodo} />
 
             {allTodos.map((todo) => (
-              <Todo key={todo} text={todo} />
+              <Todo handleDelete={handleDelete} key={todo} text={todo} />
             ))}
 
             <button type='button' onClick={() => setName(null)}>Logout</button>
