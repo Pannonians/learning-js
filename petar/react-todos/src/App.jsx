@@ -12,11 +12,22 @@ const Todo = ({ text }) => {
   )
 }
 
-const InputForNewTodo = ({ name, setNewTodo }) => {
+const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo }) => {
+
+  const [currentInput, setCurrentInput] = useState("");
+
+  useEffect(() => {
+    if (clickSaveTodo) {
+      setCurrentInput("");
+    }
+  }, [clickSaveTodo])
+
   return (
     <input
+      value={currentInput}
       placeholder="Create new todo"
       onChange={(e) => {
+        setCurrentInput(e.target.value)
         setNewTodo(`[${name}] ${e.target.value}`)
       }}
     />
@@ -62,7 +73,7 @@ function App() {
         {name ? (
           <>
             <div>Todos</div>
-            <InputForNewTodo name={name} setNewTodo={setNewTodo} />
+            <InputForNewTodo clickSaveTodo={clickSaveTodo} name={name} setNewTodo={setNewTodo} />
             <Button setClickSaveTodo={setClickSaveTodo} />
 
             {allTodos.map((todo) => (
