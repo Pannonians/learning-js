@@ -136,3 +136,9 @@ Homework:
 - ponoviti yarn i yarn workspaces
 - useState
 - useEffect iz petar/todos
+
+## Homework "useMemo()"
+- Pogledati na dokumentaciji sta je zapravo useMemo i procitati sta je "memoized" value (nije typo, nema slova R. nije memorized.) https://reactjs.org/docs/hooks-reference.html#usememo
+- Proci kroz code i pogledati sta je radjeno i u kom kontekstu
+- Napravite da se na "enter" i "numpad enter" dugme u input fieldu pravi novi todo, a izbacite postojece dugme. :)
+- PR do sutra. :)
