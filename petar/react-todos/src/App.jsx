@@ -101,7 +101,7 @@ function App() {
   }, [allTodos])
 
   const handleDelete = (todo) => {
-    setAllTodos(allTodos.filter(t => t !== todo))
+    setAllTodos(allTodos.filter(t => t.content !== todo))
   }
 
   return (
