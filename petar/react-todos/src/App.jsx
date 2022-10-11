@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 
 const ALL_TODOS = "all_todos"
+
+const TODO_TEMPLATE = {
+  content: "",
+  done: false
+}
 
 const Todo = ({ text, handleDelete }) => {
   return (
@@ -68,7 +73,10 @@ function App() {
 
   useEffect(() => {
     if (clickSaveTodo) {
-      setAllTodos([...allTodos, newTodo])
+      setAllTodos([...allTodos, {
+        ...TODO_TEMPLATE,
+        content: newTodo
+      }])
       setClickSaveTodo(false)
     }
   }, [allTodos, clickSaveTodo, newTodo])
@@ -88,6 +96,10 @@ function App() {
     }
   }, [allTodos])
 
+  const filteredDoneTodos = useMemo(() => {
+
+  }, [allTodos])
+
   const handleDelete = (todo) => {
     setAllTodos(allTodos.filter(t => t !== todo))
   }
@@ -102,7 +114,7 @@ function App() {
             <Button setClickSaveTodo={setClickSaveTodo} />
 
             {allTodos.map((todo) => (
-              <Todo handleDelete={handleDelete} key={todo} text={todo} />
+              <Todo handleDelete={handleDelete} key={todo.content} text={todo.content} />
             ))}
 
             <button type='button' onClick={() => setName(null)}>Logout</button>
