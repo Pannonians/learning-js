@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const ALL_TODOS = "all_todos";
@@ -27,7 +27,7 @@ const Todo = ({ text, handleDelete, markTodo, done }) => {
           markTodo(text);
         }}
       >
-        Mark {done ? 'not done' : 'mark done'}
+        Mark {done ? "not done" : "mark done"}
       </button>
     </div>
   );
@@ -36,21 +36,47 @@ const Todo = ({ text, handleDelete, markTodo, done }) => {
 const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo }) => {
   const [currentInput, setCurrentInput] = useState("");
 
+  const [milliSeconds, setMilliSeconds] = useState(0);
+  const [ticking, setTicking] = useState(false);
+
+  useEffect(() => {
+    if (currentInput !== "") {
+      setTicking(true);
+    }
+  }, [currentInput]);
+
+  const interval = useRef();
+
+  useEffect(() => {
+    if (ticking) {
+      interval.current = setInterval(() => {
+        setMilliSeconds((ms) => ms + 1);
+      }, 1);
+      return () => clearInterval(interval.current);
+    } else {
+      interval.current && clearInterval(interval.current);
+    }
+  }, [ticking]);
+
   useEffect(() => {
     if (clickSaveTodo) {
       setCurrentInput("");
+      setTicking(false);
     }
   }, [clickSaveTodo]);
 
   return (
-    <input
-      value={currentInput}
-      placeholder="Create new todo"
-      onChange={(e) => {
-        setCurrentInput(e.target.value);
-        setNewTodo(`[${name}] ${e.target.value}`);
-      }}
-    />
+    <>
+      <div>Milliseconds: {milliSeconds}</div>
+      <input
+        value={currentInput}
+        placeholder="Create new todo"
+        onChange={(e) => {
+          setCurrentInput(e.target.value);
+          setNewTodo(`[${name}] ${e.target.value}`);
+        }}
+      />
+    </>
   );
 };
 
@@ -112,7 +138,10 @@ function App() {
     }
   }, [allTodos]);
 
-  const filteredDoneTodos = useMemo(() => allTodos.filter(todo => todo.done), [allTodos]);
+  const filteredDoneTodos = useMemo(
+    () => allTodos ? allTodos.filter((todo) => todo.done) : [],
+    [allTodos]
+  );
 
   const handleDelete = (todo) => {
     setAllTodos(allTodos.filter((t) => t.content !== todo));
@@ -159,7 +188,9 @@ function App() {
 
             <div>
               <h4>All done todos:</h4>
-              {filteredDoneTodos.map((todo) => <p>{todo.content}</p>)}
+              {filteredDoneTodos.map((todo) => (
+                <p>{todo.content}</p>
+              ))}
             </div>
           </>
         ) : (
