@@ -33,7 +33,12 @@ const Todo = ({ text, handleDelete, markTodo, done }) => {
   );
 };
 
-const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo }) => {
+const InputForNewTodo = ({
+  name,
+  setNewTodo,
+  clickSaveTodo,
+  setClickSaveTodo,
+}) => {
   const [currentInput, setCurrentInput] = useState("");
 
   useEffect(() => {
@@ -50,12 +55,13 @@ const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo }) => {
         setCurrentInput(e.target.value);
         setNewTodo(`[${name}] ${e.target.value}`);
       }}
+      onKeyDown={(e) => {
+        if (["Enter", "NumpadEnter"].includes(e.code)) {
+          setClickSaveTodo(true);
+        }
+      }}
     />
   );
-};
-
-const Button = ({ setClickSaveTodo }) => {
-  return <button onClick={() => setClickSaveTodo(true)}>Save Todo!</button>;
 };
 
 const Greeting = ({ setName }) => {
@@ -143,9 +149,8 @@ function App() {
               clickSaveTodo={clickSaveTodo}
               name={name}
               setNewTodo={setNewTodo}
+              setClickSaveTodo={setClickSaveTodo}
             />
-            <Button setClickSaveTodo={setClickSaveTodo} />
-
             {allTodos.map((todo) => (
               <Todo
                 markTodo={markTodo}
