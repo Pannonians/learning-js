@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const ALL_TODOS = "all_todos";
@@ -41,26 +41,52 @@ const InputForNewTodo = ({
 }) => {
   const [currentInput, setCurrentInput] = useState("");
 
+  const [miliSeconds, setMiliSeconds] = useState(0);
+  const [ticking, setTicking] = useState(false);
+
+  useEffect(() => {
+    if (currentInput !== "") {
+      setTicking(true);
+    }
+  }, [currentInput]);
+
+  const interval = useRef();
+
+  useEffect(() => {
+    if (ticking) {
+      interval.current = setInterval(() => {
+        setMiliSeconds((ms) => ms + 1);
+      }, 1);
+      return () => clearInterval(interval.current);
+    } else {
+      interval.current && clearInterval(interval.current);
+    }
+  }, [ticking]);
+
   useEffect(() => {
     if (clickSaveTodo) {
       setCurrentInput("");
+      setTicking(false);
     }
   }, [clickSaveTodo]);
 
   return (
-    <input
-      value={currentInput}
-      placeholder="Create new todo"
-      onChange={(e) => {
-        setCurrentInput(e.target.value);
-        setNewTodo(`[${name}] ${e.target.value}`);
-      }}
-      onKeyDown={(e) => {
-        if (["Enter", "NumpadEnter"].includes(e.code)) {
-          setClickSaveTodo(true);
-        }
-      }}
-    />
+    <>
+      <div>Miliseconds: {miliSeconds}</div>
+      <input
+        value={currentInput}
+        placeholder="Create new todo"
+        onChange={(e) => {
+          setCurrentInput(e.target.value);
+          setNewTodo(`[${name}] ${e.target.value}`);
+        }}
+        onKeyDown={(e) => {
+          if (["Enter", "NumpadEnter"].includes(e.code)) {
+            setClickSaveTodo(true);
+          }
+        }}
+      />
+    </>
   );
 };
 
