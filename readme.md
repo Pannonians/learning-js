@@ -142,3 +142,15 @@ Homework:
 - Proci kroz code i pogledati sta je radjeno i u kom kontekstu
 - Napravite da se na "enter" i "numpad enter" dugme u input fieldu pravi novi todo, a izbacite postojece dugme. :)
 - PR do sutra. :)
+
+## Homework "React Forms"
+- Napraviti HTML form koji ce imati ove input-e i dugme na kraju
+  - firstName
+  - lastName
+  - dob (date of birth)
+  - message
+  - submit button
+
+Na form submit pokazati na ekranu JSON koji ce da sadrzi sva ta 4 polja.
+
+_Bonus ako je forma centrirana na levu polovinu ekrana, JSON sadrzaj da je prikazan centrirano na desnoj polovini ekrana._
