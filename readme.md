@@ -154,3 +154,24 @@ Homework:
 Na form submit pokazati na ekranu JSON koji ce da sadrzi sva ta 4 polja.
 
 _Bonus ako je forma centrirana na levu polovinu ekrana, JSON sadrzaj da je prikazan centrirano na desnoj polovini ekrana._
+
+## Homework "Accept credit cards"
+Apsolutno nikad i nikako necemo praviti ovaj sistem na produkciji. To je stavka broj jedan.
+
+Sad radi prakse cemo da napravimo design gde mozemo da prihvatimo kreditne kartice.
+
+Zadatak je sledeci:
+- Treba nam polje za ime i prezime vlasnika kartice
+- Treba nam input field koji ce da prihvata samo brojeve (16 karaktera, broj kreditne kartice)
+- Treba nam polje koje ce da prihvati 3 broja (cvv)
+- Treba nam polje za datum (mesec i godina) za istek kreditne kartice
+
+Slicno kao i prethodni zadatak:
+Sa leve strane da imamo formu u koju mozemo da unesemo podatke
+
+Zadatak za mozganje je sledeci:
+- Brojevi kreditne kartice treba da su u grupi od 4 brojeva. Takodje u input field kada kucamo brojeve za broj kreditne kartice, moramo da grupisemo 4 broja odvojena razmacima
+- Broj MORA da ima 16 cifara
+- Sa desne strane takodje hocu da znam da li je master ili visa kartica ili neka koju ne znamo. HINT: Master kartice krecu sa brojem 5, VISA sa brojem 4. Neka ovo bude useMemo() field.
+- CVV moze da ima 3 do 4 karaktera
+- Datum ne moze da bude u proslosti
