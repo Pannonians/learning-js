@@ -1,0 +1,24 @@
+.container {
+    background-color: cadetblue;
+    text-align: center;
+    padding: 20px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: black;
+}
+.container-flex{
+  display: flex;
+}
+.container-content{
+  text-align: center;
+  flex-direction: column;
+  border-style: solid;
+}
+.container-background{
+  background-color: rgb(145, 237, 237);
+}
+.items {
+  display: flex;
+  flex-direction: column;
+}
