@@ -1,91 +1,109 @@
 import { useState } from "react";
 import "./App.css";
 
-const InputGreeting = ({
-  setFirstName,
-  setLastName,
-  setDateOfBirth,
-  setDescription,
-}) => {
+const InputGreeting = ({ type = "text", setter, person, properties }) => {
   return (
     <div>
-      <h3>Welcome User!</h3>
-      <h1>Please enter the details below to continue!</h1>
-      <p>hit enter to confirm</p>
       <p>
-      <input
-        type="text"
-        onKeyDown={(e) => {
-          if (["Enter", "NumpadEnter"].includes(e.code)) {
-            setFirstName(e.target.value);
-          }
-        }}
-        placeholder="What's your first name?"
-      />
-      </p>
-      <p>
-      <input
-        type="text"
-        onKeyDown={(e) => {
-          if (["Enter", "NumpadEnter"].includes(e.code)) {
-            setLastName(e.target.value);
-          }
-        }}
-        placeholder="What's your last name?"
-      />
-      </p>
-      <p>
-      <input
-        type="text"
-        onKeyDown={(e) => {
-          if (["Enter", "NumpadEnter"].includes(e.code)) {
-            setDateOfBirth(e.target.value);
-          }
-        }}
-        placeholder="What's your date of birth?"
-      />
-      </p>
-      <p>
-      <input
-        type="text"
-        onKeyDown={(e) => {
-          if (["Enter", "NumpadEnter"].includes(e.code)) {
-            setDescription(e.target.value);
-          }
-        }}
-        placeholder="Write something about yourself?"
-      />
+        <input
+          type={type}
+          placeholder={properties}
+          onChange={(e) => {
+            setter({
+              ...person,
+              [properties]: e.target.value,
+            });
+          }}
+          value={person[properties]}
+        />
       </p>
     </div>
   );
 };
 
 function App() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [description, setDescription] = useState("");
-
+  const [person, setPerson] = useState({
+    firstName: "",
+    lastName: "",
+    dateOfBirth: "",
+    description: "",
+  });
+  const [displayData, setDisplayData] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        {firstName&&lastName&&dateOfBirth&&description ? (
-          <>
-            <div>Please Enter the details below</div>
-            <InputGreeting
-              firstName={setFirstName}
-              lastName={setLastName}
-              dateOfBirth={setDateOfBirth}
-              description={setDescription}
-            />
-            <button type="button" onClick={() => setDateOfBirth}>
-            </button>
-          </>
-        ) : (
-          <InputGreeting />
-        )}
-      </header>
-    </div>
+    <>
+      <div className="flex items-center content-center">
+        <h1>Form React</h1>
+      </div>
+
+      <div className="flex justify-between">
+        <div
+          className="flex content-center items-center direction-column"
+          style={{ height: 150, width: "50vw" }}
+        >
+          <h1>Please fill out the form below</h1>
+        </div>
+        <div
+          className="flex content-center items-center direction-column"
+          style={{ height: 150, width: "50vw" }}
+        >
+          <h1>Content</h1>
+        </div>
+      </div>
+      <div className="flex justify-between">
+        <div style={{ height: 15, width: "50vw", marginLeft: 350 }}>
+          <InputGreeting
+            properties={"firstName"}
+            setter={setPerson}
+            person={person}
+          />
+          <InputGreeting
+            properties={"lastName"}
+            setter={setPerson}
+            person={person}
+            cols="20"
+            rows="1"
+          />
+          <InputGreeting
+            type="date"
+            properties={"dateOfBirth"}
+            setter={setPerson}
+            person={person}
+            cols="20"
+          />
+          <InputGreeting
+            type="text-area"
+            setter={setPerson}
+            properties={"description"}
+            person={person}
+            cols="30"
+            rows="3"
+          />
+        </div>
+        <div style={{ height: 15, width: "50vw", marginRight: -400 }}>
+          {displayData && (
+            <code style={{ fontSize: 14 }}>
+              <div>First name: {JSON.stringify(person.firstName)}</div>
+              <div>Last name: {JSON.stringify(person.lastName)}</div>
+              <div>Date of Birth: {JSON.stringify(person.dateOfBirth)}</div>
+              <div>Description: {JSON.stringify(person.description)}</div>
+            </code>
+          )}
+        </div>
+      </div>
+      <div
+        className="flex items-center content-center"
+        style={{ marginTop: 250, height: "50px" }}
+        size="lg"
+      >
+        <button
+          onClick={(e) => {
+            setDisplayData(true);
+          }}
+        >
+          Submit
+        </button>
+      </div>
+    </>
   );
 }
 
