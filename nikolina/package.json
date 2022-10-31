@@ -7,8 +7,9 @@
     "scripts": {
       "start": "node index.js",
       "inquirer": "yarn workspace nikolina-inquirer",
-      "clock": "yarn workspace clock"
+      "clock": "yarn workspace clock",
+      "todo": "yarn workspace todo"
     },
     "private":"true",
-    "workspaces": ["./inquirer", "./clock"]
+    "workspaces": ["./inquirer", "./clock", "./react-todo"]
   }
