@@ -33,7 +33,7 @@ const Todo = ({ text, handleDelete, markTodo, done }) => {
   );
 };
 
-const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo }) => {
+const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo, passedRef }) => {
   const [currentInput, setCurrentInput] = useState("");
 
   const [milliSeconds, setMilliSeconds] = useState(0);
@@ -69,6 +69,7 @@ const InputForNewTodo = ({ name, setNewTodo, clickSaveTodo }) => {
     <>
       <div>Milliseconds: {milliSeconds}</div>
       <input
+        ref={passedRef}
         value={currentInput}
         placeholder="Create new todo"
         onChange={(e) => {
@@ -110,6 +111,8 @@ function App() {
 
   const [name, setName] = useState(null);
 
+  const inputField = useRef();
+
   useEffect(() => {
     if (clickSaveTodo) {
       setAllTodos([
@@ -120,6 +123,7 @@ function App() {
         },
       ]);
       setClickSaveTodo(false);
+      inputField.current.focus();
     }
   }, [allTodos, clickSaveTodo, newTodo]);
 
@@ -142,6 +146,8 @@ function App() {
     () => allTodos ? allTodos.filter((todo) => todo.done) : [],
     [allTodos]
   );
+
+  // ABOVE MUST BE HOOKS
 
   const handleDelete = (todo) => {
     setAllTodos(allTodos.filter((t) => t.content !== todo));
@@ -166,6 +172,7 @@ function App() {
           <>
             <div>Todos</div>
             <InputForNewTodo
+              passedRef={inputField}
               clickSaveTodo={clickSaveTodo}
               name={name}
               setNewTodo={setNewTodo}
