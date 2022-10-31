@@ -7,8 +7,9 @@
     "scripts": {
       "start": "node index.js",
       "inquirer": "yarn workspace nikolina-inquirer",
-      "clock": "yarn workspace clock"
+      "clock": "yarn workspace clock",
+      "creditcards": "yarn workspace creditcards"
     },
     "private":"true",
-    "workspaces": ["./inquirer", "./clock"]
+    "workspaces": ["./inquirer", "./clock", "./react-accept_credit_cards"]
   }
