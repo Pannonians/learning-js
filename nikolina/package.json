@@ -8,8 +8,10 @@
       "start": "node index.js",
       "inquirer": "yarn workspace nikolina-inquirer",
       "clock": "yarn workspace clock",
+      "forms": "yarn workspace forms"
       "creditcards": "yarn workspace creditcards"
     },
     "private":"true",
-    "workspaces": ["./inquirer", "./clock", "./react-accept_credit_cards"]
-  }
+    "workspaces": ["./inquirer", "./clock", "./react-forms", "./react-accept_credit_cards"]
+    }
+   
