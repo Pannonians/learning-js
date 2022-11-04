@@ -10,7 +10,8 @@
     "async": "yarn workspace async",
     "explorer": "yarn workspace petar-explorer",
     "clock": "yarn workspace clock",
-    "todos": "yarn workspace todos"
+    "todos": "yarn workspace todos",
+    "router": "yarn workspace react-router-example"
   },
   "private": true,
   "workspaces": [
@@ -18,6 +19,7 @@
     "./async",
     "./explorer",
     "./clock",
-    "./react-todos"
+    "./react-todos",
+    "./react-router-example"
   ]
 }
