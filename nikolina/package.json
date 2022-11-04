@@ -9,7 +9,9 @@
       "inquirer": "yarn workspace nikolina-inquirer",
       "clock": "yarn workspace clock",
       "forms": "yarn workspace forms"
+      "creditcards": "yarn workspace creditcards"
     },
     "private":"true",
-    "workspaces": ["./inquirer", "./clock", "./react-forms"]
-  }
+    "workspaces": ["./inquirer", "./clock", "./react-forms", "./react-accept_credit_cards"]
+    }
+   
