@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   return (
-      <div class="App">
+      <div className="App">
           <header className="App-header"></header>
           <div
             className="flex items-center content-center box"
