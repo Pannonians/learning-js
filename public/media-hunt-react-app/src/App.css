@@ -1,16 +1,11 @@
 .App {
-  background-image: url('./img/movies.jpg');
+  background-image: url('./img/moviesimage.jpg');
     min-width: 1000px;
     min-height: 1000px;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     list-style: none;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -21,7 +16,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 0vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,4 +47,73 @@
 }
 .content-center {
   justify-content: center;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxSearch {
+  text-align: center;
+  border: black ridge 1px;
+  border-radius: 5px;
+  margin: 20px;
+  margin-left: 700px;
+  width: 25rem;
+  padding-left: 10px;
+  background-color: rgba(52, 52, 52, 0.8)
+}
+
+/* search */
+.search-container {
+  margin: 30px 0;
+}
+
+.search-container .searchbox .twitter-typeahead, .search-container .searchbox .typeahead {
+  width: 90%;
+  background: none;
+  background-color: ghostwhite;
+  border-bottom: solid 5px white;
+}
+
+.tt-dropdown-menu {
+  animation: fadein ease-out 0.5s;
+  min-width: 100%;
+  margin-top: 2px;
+  padding: 5px 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  color: "grey";
+}
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+.tt-suggestion p {
+  margin: 5px 0;
+}
+.tt-suggestion.tt-cursor, .tt-suggestion:hover {
+  color: "grey";
+  background-color: "green";
+}
+.tt-suggestion:hover {
+  cursor: pointer;
+}
+
+.button {
+  border-radius: 8px;
+  background-color: azure;
+  border: none;
+  color: #282c34;
+  padding: 11px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
