@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import "./App.css";
 
-var cardTypes = {
+const cardTypes = {
   visa: {
     type: "VISA",
     partialPattern: /^4/,
@@ -12,243 +12,150 @@ var cardTypes = {
   },
 };
 
-const InputField = ({
-  type = "text",
-  setter,
-  creditCardHolder,
-  properties,
-}) => {
-  return (
-    <div>
-      <p>
-        <input
-          type={type}
-          placeholder={properties}
-          onChange={(e) => {
-            setter({
-              ...creditCardHolder,
-              [properties]: e.target.value,
-            });
-          }}
-          value={creditCardHolder[properties]}
-        />
-      </p>
-    </div>
-  );
-};
-
-const CreditCardInput = ({ setParentCreditCard }) => {
-  const [creditCardNumber, setCreditCardNumber] = useState("");
-
-  const formatAndSetCardSpace = (e) => {
-    const inputVal = e.target.value.replace(/ /g, "");
-    let inputNumbersOnly = inputVal.replace(/\D/g, "");
-
-    if (inputNumbersOnly.length > 16) {
-      inputNumbersOnly = inputNumbersOnly.substring(0, 16);
-    }
-
-    const splits = inputNumbersOnly.match(/.{1,4}/g);
-
-    let spacedNumber = "";
-    if (splits) {
-      spacedNumber = splits.join(" ");
-    }
-    setCreditCardNumber(spacedNumber);
-    setParentCreditCard(spacedNumber);
-  };
-
-  return (
-    <div>
-      <p>
-        <input
-          type="text"
-          placeholder="Enter credit card number"
-          onChange={formatAndSetCardSpace}
-          value={creditCardNumber}
-        />
-      </p>
-    </div>
-  );
-};
-
-const DateInput = ({ expiryDate, setExpiryDate }) => {
-  return (
-    <div>
-      <span class="expiration">
-        <input
-          type="number"
-          placeholder="mm"
-          maxLength="2"
-          size="2"
-          onChange={(e) => {
-            let input = e.target.value.replace(/\D/g, "");
-            setExpiryDate({
-              ...expiryDate,
-              mm: input,
-            });
-          }}
-        />
-        <span>/</span>
-        <input
-          type="number"
-          placeholder="yy"
-          maxLength="2"
-          size="2"
-          onChange={(e) => {
-            let inputt = e.target.value.replace(/\D/g, "");
-            setExpiryDate({
-              ...expiryDate,
-              yy: inputt,
-            });
-          }}
-        />
-      </span>
-    </div>
-  );
-};
 function App() {
-  const [creditCardHolder, setCreditCardHolder] = useState({
-    firstName: "",
-    lastName: "",
-    creditCard: "",
-    cardType: "",
-    cvs: "",
-  });
+  const [fullName, setFullName] = useState('')
+  const [creaditCard, setCreaditCard] = useState('')
+  const [expiryDate, setExpiryDate] = useState('')
+  const [cvs, setCvs] = useState('')
+  const [cardType, setCardType] = useState('')
 
-  const [expiryDate, setExpiryDate] = useState({
-    mm: "",
-    yy: "",
-  });
+  //handle sumbit 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
-  const setCreditCardNumber = (creditCardNumber) => {
-    setCreditCardHolder({ ...creditCardHolder, creditCard: creditCardNumber });
-  };
+  //card type 
+  useEffect(() => {
+    if (cvs.toString().match(cardTypes.master.partialPattern)
+    )
+      setCardType((cardType) => cardTypes.master.type)
+    else if (
+      cvs.toString().match(cardTypes.visa.partialPattern)
+    )
+      setCardType((cardType) => cardTypes.visa.type)
+    else {
+      setCardType((cardType) => "neither Visa or Master")
+    }
+  },[cvs]);
 
+  //Display data 
   const [displayData, setDisplayData] = useState(false);
 
-  useEffect(() => {
-    if (
-      creditCardHolder.creditCard
-        .toString()
-        .match(cardTypes.master.partialPattern)
-    )
-      creditCardHolder.cardType = cardTypes.master.type;
-    else if (
-      creditCardHolder.creditCard
-        .toString()
-        .match(cardTypes.visa.partialPattern)
-    )
-      creditCardHolder.cardType = cardTypes.visa.type;
-    else {
-      creditCardHolder.cardType = "neither Visa or Master";
-    }
-  });
-
   return (
-    <>
-      <div className="flex items-center content-center">
-        <h1>Credit Card Details</h1>
+    <div className="App">
+      <div className="App-header">
+        <h1>Creadit card form</h1>
+        <h2>Please enter requested info</h2>
       </div>
-
-      <div className="flex justify-between">
-        <div
-          className="flex content-center items-center direction-column"
-          style={{ height: 150, width: "50vw" }}
-        >
-          <h1>Please fill out the details below</h1>
-        </div>
-        <div
-          className="flex content-center items-center direction-column"
-          style={{ height: 150, width: "50vw" }}
-        >
-          <h1>Content</h1>
-        </div>
-      </div>
-      <div className="flex justify-between">
-        <div style={{ height: 15, width: "50vw", marginLeft: 350 }}>
-          <InputField
-            properties={"firstName"}
-            setter={setCreditCardHolder}
-            creditCardHolder={creditCardHolder}
-          />
-          <InputField
-            properties={"lastName"}
-            setter={setCreditCardHolder}
-            creditCardHolder={creditCardHolder}
-            cols="20"
-            rows="1"
-          />
-          <CreditCardInput
-            setParentCreditCard={setCreditCardNumber}
-            cols="20"
-            rows="1"
-          />
+      <div className="App-container">
+        <form onSubmit={handleSubmit}>
           <div>
-            <DateInput expiryDate={expiryDate} setExpiryDate={setExpiryDate} />
+            <p>Enter your name</p>
+            <input
+              type="text"
+              value={fullName}
+              placeholder="Enter your name"
+              onChange={(e) => setFullName(e.target.value.replace(/[^a-z]/gi, ' '))}
+            />
+            <p>Creadit card number</p>
+            <input
+              type="text"
+              value={creaditCard}
+              placeholder="Creadit card number"
+              onChange={(e) => setCreaditCard(e.target.value.replace(/\D/g, "").replace(/(\d{4}(?!\s))/g, "$1 ").substring(0, 19))}
+            />
+            <div>
+              <p>Expiry date</p>
+              <input
+                type="text"
+                value={expiryDate}
+                onChange={(e) => setExpiryDate(e.target.value.replace(
+                  /^([1-9]\/|[2-9])$/g, '0$1/' // 3 > 03/
+                ).replace(
+                  /^(0[1-9]|1[0-2])$/g, '$1/' // 11 > 11/
+                ).replace(
+                  /^([0-1])([3-9])$/g, '0$1/$2' // 13 > 01/3
+                ).replace(
+                  /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2' // 141 > 01/41
+                ).replace(
+                  /^([0]+)\/|[0]+$/g, '0' // 0/ > 0 and 00 > 0
+                ).replace(
+                  /[^\d\/]|^[\/]*$/g, '' // To allow only digits and `/`
+                ).replace(
+                  /\/\//g, '/' // Prevent entering more than 1 `/`
+                )
+                )}
+                maxLength="5"
+                placeholder="MM/YY"
+              />
+            </div>
+            <div>
+              <p>CVS</p>
+              <input
+                type="text"
+                value={cvs}
+                onChange={(e) => setCvs(e.target.value.replace(/\D/g, ""))}
+                maxLength="4"
+                placeholder="CVS"
+              />
+            </div>
           </div>
-          <InputField
-            type="number"
-            properties={"cvs"}
-            setter={setCreditCardHolder}
-            creditCardHolder={creditCardHolder}
-            cols="30"
-            rows="3"
-          />
-        </div>
-        <div style={{ height: 15, width: "50vw", marginRight: -400 }}>
+          <br></br>
+          <div>
+            <button
+              onClick={(e) => {
+                const max_cardnumber = 19;
+                const min_cvsnumber = 3;
+                const d = new Date();
+                const month = d.getMonth() + 1;
+                const year = d.getFullYear().toString().substring(2);
+                const splitDate = expiryDate.split('/')
+
+                if (
+                  creaditCard.toString().length < max_cardnumber ||
+                  creaditCard.toString().length > max_cardnumber
+                ) {
+                  return alert("Credit Card must contain 16 numbers");
+                } else if (cvs.toString().length < min_cvsnumber) {
+                  return alert("cvs number can contain min 3 numbers");
+                } else if (
+                  parseInt(splitDate[1]) < parseInt(year) ||
+                  (parseInt(splitDate[1]) === parseInt(year) &&
+                    splitDate[0] > parseInt(month))
+                ) {
+                  alert("The expiry date is in the past");
+                } else setDisplayData(true);
+              }} >Submit
+            </button>
+          </div>
+          <br></br>
+
+        </form>
+        <div>
+          <h4>Result:</h4>
           {displayData && (
-            <code style={{ fontSize: 14 }}>
+            <code>
               <div>
-                First name: {JSON.stringify(creditCardHolder.firstName)}
+                Name: <br></br> <p className="App-result">{JSON.stringify(fullName)}</p>
               </div>
-              <div>Last name: {JSON.stringify(creditCardHolder.lastName)}</div>
               <div>
-                Credit Card Number:{JSON.stringify(creditCardHolder.creditCard)}
+                Credit Card Number: <br></br> <p className="App-result">{JSON.stringify(creaditCard)}</p>
               </div>
-              <div>Card Type: {JSON.stringify(creditCardHolder.cardType)}</div>
               <div>
-                Valid Thru:{JSON.stringify(expiryDate.mm + "/" + expiryDate.yy)}
+                Expiry date: <br></br> <p className="App-result">{JSON.stringify(expiryDate)}</p>
               </div>
-              <div>CVS: {JSON.stringify(creditCardHolder.cvs)}</div>
+              <div>
+                CVS: <br></br> <p className="App-result">{JSON.stringify(cvs)}</p>
+              </div>
+              <div>
+                Card Type: <br></br> <p className="App-result">{JSON.stringify(cardType)}</p>
+              </div>
             </code>
           )}
         </div>
       </div>
-      <div
-        className="flex items-center content-center"
-        style={{ marginTop: 250, height: "50px" }}
-        size="lg"
-      >
-        <button
-          onClick={(e) => {
-            const max_cardnumber = 19;
-            const max_cvsnumber = 4;
-            const d = new Date();
-            const month = d.getMonth() + 1;
-            const year = d.getFullYear().toString().substring(2);
-
-            if (
-              creditCardHolder.creditCard.toString().length < max_cardnumber ||
-              creditCardHolder.creditCard.toString().length > max_cardnumber
-            ) {
-              return alert("Credit Card can only contain 16 numbers");
-            } else if (creditCardHolder.cvs.toString().length > max_cvsnumber) {
-              return alert("cvs number can contain maximum 4 numbers");
-            } else if (
-              parseInt(expiryDate.yy) < parseInt(year) ||
-              (parseInt(expiryDate.yy) === parseInt(year) &&
-                month > parseInt(expiryDate.mm))
-            ) {
-              alert("The expiry date is in the past");
-            } else setDisplayData(true);
-          }}
-        >
-          Submit
-        </button>
-      </div>
-    </>
-  );
+    </div>
+  )
 }
 
 export default App;
