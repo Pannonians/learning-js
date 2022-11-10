@@ -8,7 +8,7 @@
       "start": "node index.js",
       "inquirer": "yarn workspace nikolina-inquirer",
       "clock": "yarn workspace clock",
-      "forms": "yarn workspace forms"
+      "forms": "yarn workspace forms",
       "creditcards": "yarn workspace creditcards"
     },
     "private":"true",
