@@ -8,7 +8,8 @@
     "inquirer": "yarn workspace david-inquirer",
     "david-repoexplorer": "yarn workspace david-repoexplorer",
     "david-smile": "yarn workspace david-smile",
-    "david-movie": "yarn workspace david-movie"
+    "david-movie": "yarn workspace david-movie",
+    "david-react-creaditcard": "yarn workspace david-react-creaditcard"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,8 @@
     "./inquirer",
     "./repoexplorer",
     "./smile",
-    "./media-hunt"
+    "./media-hunt",
+    "./react-creaditcard"
   ],
   "dependencies": {
     "yargs": "^17.5.1"
