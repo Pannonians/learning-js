@@ -1,14 +1,5 @@
-import search from "../API/index";
+import { search } from "../API/index";
 import instance from "../client";
-
-async function getMultiSearch() {
-  try {
-    const { data } = await instance.get(search.get.multiSearch.url);
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 async function getSearchMovie() {
   try {
@@ -28,4 +19,4 @@ async function getSearchTv() {
   }
 }
 
-export { getMultiSearch, getSearchMovie, getSearchTv };
+export { getSearchMovie, getSearchTv };

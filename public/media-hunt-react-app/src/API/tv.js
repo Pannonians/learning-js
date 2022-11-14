@@ -19,8 +19,8 @@ const tv = {
       url: (id, season_number) => `/tv/${id}/season/${season_number}`,
     },
     cast: {
-      url: (id) => `/tv/${id}/credits`
-    }
+      url: (id) => `/tv/${id}/credits`,
+    },
   },
 };
 

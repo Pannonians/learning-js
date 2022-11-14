@@ -1,5 +1,5 @@
-import movie from "../API/index"
-import instance from "../client"
+import { movie } from "../API/index";
+import instance from "../client";
 
 async function getMoviesDiscover() {
   try {

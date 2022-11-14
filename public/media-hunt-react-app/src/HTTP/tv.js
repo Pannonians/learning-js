@@ -1,5 +1,5 @@
-import tv from "../API/index"
-import instance from "../client"
+import { tv } from "../API/index";
+import instance from "../client";
 
 async function getTvDiscover() {
   try {
