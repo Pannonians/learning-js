@@ -20,7 +20,7 @@ export default function Tv() {
   };
 
   function TvDetails() {
-    navigate("/Tv/tvDetails");
+    navigate("/tv/:id");
   }
   return (
     <div className="App">

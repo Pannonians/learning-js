@@ -20,7 +20,7 @@ export default function Movie() {
   };
 
   function handleGoMovieDetails() {
-    navigate("/Movie/movieDetails");
+    navigate(":id");
   }
 
   return (
@@ -44,6 +44,7 @@ export default function Movie() {
           movies.map((movie) => {
             return <div key={movie.id}>{movie.title}</div>;
           })}
+          <div><button onClick={fetchInitialData}>Load more...</button></div>
       </div>
     </div>
   );

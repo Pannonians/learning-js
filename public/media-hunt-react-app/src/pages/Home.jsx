@@ -7,11 +7,11 @@ export default function Home() {
   const selectedColor = queryParams.get("color");
 
   function handleGoMovie() {
-    navigate("/Movie");
+    navigate("/movie");
   }
 
   function handleGoTv() {
-    navigate("/Tv");
+    navigate("/tv");
   }
 
   return (
