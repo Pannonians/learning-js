@@ -26,17 +26,17 @@ function App() {
 
   //card type 
   useEffect(() => {
-    if (cvs.toString().match(cardTypes.master.partialPattern)
+    if (creaditCard.toString().match(cardTypes.master.partialPattern)
     )
       setCardType((cardType) => cardTypes.master.type)
     else if (
-      cvs.toString().match(cardTypes.visa.partialPattern)
+      creaditCard.toString().match(cardTypes.visa.partialPattern)
     )
       setCardType((cardType) => cardTypes.visa.type)
     else {
       setCardType((cardType) => "neither Visa or Master")
     }
-  },[cvs]);
+  },[creaditCard]);
 
   //Display data 
   const [displayData, setDisplayData] = useState(false);
@@ -104,11 +104,11 @@ function App() {
           <div>
             <button
               onClick={(e) => {
-                const max_cardnumber = 19;
-                const min_cvsnumber = 3;
-                const d = new Date();
-                const month = d.getMonth() + 1;
-                const year = d.getFullYear().toString().substring(2);
+                const max_cardnumber = 19
+                const min_cvsnumber = 3
+                const d = new Date()
+                const month = d.getMonth() + 1
+                const year = d.getFullYear().toString().substring(2)
                 const splitDate = expiryDate.split('/')
 
                 if (
@@ -117,11 +117,11 @@ function App() {
                 ) {
                   return alert("Credit Card must contain 16 numbers");
                 } else if (cvs.toString().length < min_cvsnumber) {
-                  return alert("cvs number can contain min 3 numbers");
+                  return alert("CVS number can contain min 3 numbers");
                 } else if (
                   parseInt(splitDate[1]) < parseInt(year) ||
                   (parseInt(splitDate[1]) === parseInt(year) &&
-                    splitDate[0] > parseInt(month))
+                    splitDate[0] < parseInt(month))
                 ) {
                   alert("The expiry date is in the past");
                 } else setDisplayData(true);
