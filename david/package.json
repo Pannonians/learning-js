@@ -9,7 +9,8 @@
     "david-repoexplorer": "yarn workspace david-repoexplorer",
     "david-smile": "yarn workspace david-smile",
     "david-movie": "yarn workspace david-movie",
-    "david-react-creaditcard": "yarn workspace david-react-creaditcard"
+    "david-react-creaditcard": "yarn workspace david-react-creaditcard",
+    "david-react-router": "yarn workspace david-react-router"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,8 @@
     "./repoexplorer",
     "./smile",
     "./media-hunt",
-    "./react-creaditcard"
+    "./react-creaditcard",
+    "./david-react-router"
   ],
   "dependencies": {
     "yargs": "^17.5.1"
