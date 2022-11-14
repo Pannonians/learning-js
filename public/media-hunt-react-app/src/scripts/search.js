@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./search.css"
+import "./search.css";
 
 class SearchBox extends Component {
-
   handleChange(event) {
     event.target.select();
   }
@@ -11,8 +10,7 @@ class SearchBox extends Component {
     return (
       <div className="col-xs-12 search-container nopadding">
         <div className="row">
-          <div className="col-xs-12 col-sm-6 col-lg-5">
-          </div>
+          <div className="col-xs-12 col-sm-6 col-lg-5"></div>
           <div className="col-xs-12 col-sm-6 col-lg-7">
             <form className="searchbox">
               <input

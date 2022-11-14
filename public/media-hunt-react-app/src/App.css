@@ -1,11 +1,11 @@
 .App {
   background-image: url('./img/moviesimage.jpg');
-    min-width: 1000px;
-    min-height: 1000px;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    list-style: none;
+  min-width: 1000px;
+  min-height: 1000px;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  list-style: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,6 +33,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -45,6 +46,7 @@
 .items-center {
   justify-items: center;
 }
+
 .content-center {
   justify-content: center;
 }
@@ -71,7 +73,8 @@
   margin: 30px 0;
 }
 
-.search-container .searchbox .twitter-typeahead, .search-container .searchbox .typeahead {
+.search-container .searchbox .twitter-typeahead,
+.search-container .searchbox .typeahead {
   width: 90%;
   background: none;
   background-color: ghostwhite;
@@ -89,18 +92,23 @@
   background-clip: padding-box;
   color: "grey";
 }
+
 .tt-suggestion {
   padding: 3px 20px;
   font-size: 18px;
   line-height: 24px;
 }
+
 .tt-suggestion p {
   margin: 5px 0;
 }
-.tt-suggestion.tt-cursor, .tt-suggestion:hover {
+
+.tt-suggestion.tt-cursor,
+.tt-suggestion:hover {
   color: "grey";
   background-color: "green";
 }
+
 .tt-suggestion:hover {
   cursor: pointer;
 }

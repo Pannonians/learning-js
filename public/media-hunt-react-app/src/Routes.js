@@ -9,12 +9,12 @@ export default function Routes() {
   return (
     <BaseRoutes>
       <Route path="/" element={<Home />} />
-      <Route path="Movie">
+      <Route path="movie">
         <Route index element={<Movie />} />
-        <Route path="/Movie/movieDetails" element={<MovieDetails/>}/>
+        <Route path=":id" element={<MovieDetails />} />
       </Route>
-      <Route path="Tv" index element={<Tv />} />
-      <Route path="/Tv/tvDetails" index element={<TvDetails/>}/>
+      <Route path="tv" index element={<Tv />} />
+      <Route path="/tv/:id" index element={<TvDetails />} />
     </BaseRoutes>
   );
 }

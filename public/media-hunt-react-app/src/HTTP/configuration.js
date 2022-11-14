@@ -1,5 +1,5 @@
-import configuration from "../API/configuration"
-import instance from "../client"
+import { configuration } from "../API/index";
+import instance from "../client";
 
 async function getConfig() {
   try {
