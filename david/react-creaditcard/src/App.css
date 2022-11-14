@@ -1,0 +1,26 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(3px + 2vmin);
+  color: white;
+}
+
+.App-header{
+  text-align: center;
+}
+
+.App-container {
+  background-color: rgb(0, 1, 2);
+  width: 100vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.App-result {
+  color:rgb(6, 247, 51);
+  font-size: calc(1px + 1.5vmin);
+}
