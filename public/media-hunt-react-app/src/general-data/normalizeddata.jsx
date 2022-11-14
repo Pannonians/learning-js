@@ -1,5 +1,5 @@
-import getTvCast from "../http/tv";
-import getMovieCast from "../http/movie";
+import { getTvCast } from "../http/tv";
+import { getMovieCast } from "../http/movie";
 
 const normalization = async (data) => ({
   title: data.original_name || data.original_title,
@@ -16,7 +16,7 @@ const creditsResponse = async (id, hasSeasons) =>
 const actors = async (id, hasSeasons) => {
   const resp = await creditsResponse(id, hasSeasons);
   return resp.cast.map((actorAndCharacter) => {
-    tvActors = {
+    const tvActors = {
       name: actorAndCharacter.name,
       character: actorAndCharacter.character,
     };

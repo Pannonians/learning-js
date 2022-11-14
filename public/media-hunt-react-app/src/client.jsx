@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 
 const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 
 instance.defaults.headers.common = {
-  Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`,
+  Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
 };
 
-export { instance };
+export default instance;
