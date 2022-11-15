@@ -1,9 +1,9 @@
 import { movie } from "../API/index";
 import instance from "../client";
 
-async function getMoviesDiscover() {
+async function getMoviesDiscover(pageNumber) {
   try {
-    const { data } = await instance.get(movie.get.discover.url);
+    const { data } = await instance.get(movie.get.discover.url(pageNumber));
     return data;
   } catch (error) {
     console.log(error);

@@ -1,7 +1,7 @@
 const movie = {
   get: {
     discover: {
-      url: "/discover/movie",
+      url: (pageNumber) => `/discover/movie?page=${pageNumber}`,
     },
     movie: {
       url: (id) => `/movie/${id}`,

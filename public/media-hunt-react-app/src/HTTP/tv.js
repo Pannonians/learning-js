@@ -1,9 +1,9 @@
 import { tv } from "../API/index";
 import instance from "../client";
 
-async function getTvDiscover() {
+async function getTvDiscover(pageNumber) {
   try {
-    const { data } = await instance.get(tv.get.discover.url);
+    const { data } = await instance.get(tv.get.discover.url(pageNumber));
     return data;
   } catch (error) {
     console.log(error);
