@@ -3,19 +3,21 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getTvDiscover } from "../HTTP/tv";
-import { addTvShows } from "../state/features/tvShows";
+import { addTvShows, resetTvs } from "../state/features/tvShows";
 
 export default function Tv() {
   const navigate = useNavigate();
   const tvShows = useSelector((state) => state.tvShows.index);
+  const page = useSelector((page) => page.tvShows.page);
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchTvData();
+    return () => dispatch(resetTvs());
   }, []);
 
   const fetchTvData = async () => {
-    const data = await getTvDiscover();
+    const data = await getTvDiscover(page);
     dispatch(addTvShows(data.results));
   };
 
@@ -43,6 +45,9 @@ export default function Tv() {
           tvShows.map((tv) => {
             return <div key={tv.id}>{tv.name}</div>;
           })}
+        <div>
+          <button onClick={fetchTvData}>Load more...</button>
+        </div>
       </div>
     </div>
   );

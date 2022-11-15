@@ -1,21 +1,23 @@
 import { SearchBox } from "../scripts/search";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getMoviesDiscover } from "../HTTP/movie";
-import { addMovies } from "../state/features/movies";
+import { addMovies, resetMovies } from "../state/features/movies";
 
 export default function Movie() {
   const navigate = useNavigate();
   const movies = useSelector((state) => state.movies.index);
+  const page = useSelector((page) => page.movies.page);
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchInitialData();
+    return () => dispatch(resetMovies());
   }, []);
 
   const fetchInitialData = async () => {
-    const data = await getMoviesDiscover();
+    const data = await getMoviesDiscover(page);
     dispatch(addMovies(data.results));
   };
 
@@ -44,7 +46,9 @@ export default function Movie() {
           movies.map((movie) => {
             return <div key={movie.id}>{movie.title}</div>;
           })}
-          <div><button onClick={fetchInitialData}>Load more...</button></div>
+        <div>
+          <button onClick={fetchInitialData}>Load more...</button>
+        </div>
       </div>
     </div>
   );
