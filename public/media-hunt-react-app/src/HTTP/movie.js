@@ -31,7 +31,7 @@ async function getMovieTopRated() {
 async function getMovie(id) {
   try {
     const { data } = await instance.get(movie.get.movie.url(id));
-    return data;
+    return data
   } catch (error) {
     console.log(error);
   }

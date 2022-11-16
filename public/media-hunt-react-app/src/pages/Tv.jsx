@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getTvDiscover } from "../HTTP/tv";
 import { addTvShows, resetTvs } from "../state/features/tvShows";
+import { Link } from "react-router-dom";
 
 export default function Tv() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function Tv() {
         <SearchBox onClick={TvDetails} />
         {tvShows?.length > 0 &&
           tvShows.map((tv) => {
-            return <div key={tv.id}>{tv.name}</div>;
+            return <Link to={`/tv/${tv.id}`}>{tv.name}<br></br></Link>;
           })}
         <div>
           <button onClick={fetchTvData}>Load more...</button>
