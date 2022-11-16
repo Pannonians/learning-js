@@ -125,3 +125,8 @@
   font-size: 12px;
   margin-bottom: 15px;
 }
+
+.App-result{
+  display: flex;
+  justify-content: space-between;
+}
