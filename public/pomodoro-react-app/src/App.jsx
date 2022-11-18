@@ -1,9 +1,9 @@
 import './App.css';
-import Pomodoro from './pomodoro';
+import Pomodoro from './components/pomodoro';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Pomodoro />
     </div>
   );
