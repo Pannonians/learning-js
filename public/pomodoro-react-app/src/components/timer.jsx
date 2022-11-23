@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Settings from "./settings";
+import Settings from "./settings/settings";
 
 function Timer() {
   const [time, setTime] = useState(25 * 60) // time in seconds 
