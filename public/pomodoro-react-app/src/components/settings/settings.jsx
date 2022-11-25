@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Dialog } from "@reach/dialog";
 import { Tab, Tabs, TabList, TabPanel, TabPanels } from "@reach/tabs";
 import "@reach/dialog/styles.css";
 import "@reach/tabs/styles.css";
 import "../settings/Popup.css";
+import "../../App.css";
 import { VisuallyHidden } from "@reach/visually-hidden";
 
 const Scheme = ({ type = "text", setter, schemeDetails, properties }) => {
@@ -30,7 +31,16 @@ export default function Settings() {
   const [showModal, setShowModal] = useState(false);
   const open = () => setShowModal(true);
   const close = () => setShowModal(false);
-  const [saveData, setSaveData] = useState(false);
+  const [handleSave, setHandleSave] = useState(false);
+  const [allSchemes, setAllSchemes] = useState(() => {
+    const savedSchemes = localStorage.getItem("allSchemes");
+    if (savedSchemes) {
+      return JSON.parse(savedSchemes);
+    } else {
+      return [];
+    }
+  });
+
   const [schemeDetails, setSchemeDetails] = useState({
     pomodoroDuration: "",
     shortBreakDuration: "",
@@ -39,8 +49,71 @@ export default function Settings() {
     pomodoroCategory: "",
     autostartPomodoros: true,
     autoStartBreaks: true,
-    readonly: false,
   });
+  useEffect(() => {
+    localStorage.setItem("allSchemes", JSON.stringify(allSchemes));
+  }, [allSchemes]);
+
+  const addScheme = () => {
+    const newItem = [...allSchemes, { ...schemeDetails }];
+    localStorage.setItem("allSchemes", JSON.stringify(newItem));
+  };
+
+  const saveInStorage = () => {
+    if (
+      schemeDetails.pomodoroDuration !== "" &&
+      schemeDetails.shortBreakDuration !== "" &&
+      schemeDetails.longBreakDuration !== "" &&
+      schemeDetails.longBreakDelay !== "" &&
+      schemeDetails.pomodoroCategory !== ""
+    ) {
+      setAllSchemes([
+        ...allSchemes,
+        {
+          pomodoroDuration: schemeDetails.pomodoroDuration,
+          shortBreakDuration: schemeDetails.shortBreakDuration,
+          longBreakDuration: schemeDetails.longBreakDuration,
+          longBreakDelay: schemeDetails.longBreakDelay,
+          pomodoroCategory: schemeDetails.pomodoroCategory,
+          autostartPomodoros: schemeDetails.autostartPomodoros,
+          autoStartBreaks: schemeDetails.autoStartBreaks,
+        },
+      ]);
+      setSchemeDetails({
+        pomodoroDuration: "",
+        shortBreakDuration: "",
+        longBreakDuration: "",
+        longBreakDelay: "",
+        pomodoroCategory: "",
+        autostartPomodoros: true,
+        autoStartBreaks: true,
+      });
+      setHandleSave(false)
+    }
+  };
+
+  useEffect(() => {
+    saveInStorage();
+  }, [handleSave]);
+
+  const storageSchemes = useMemo(() => {
+    if (handleSave == false) {
+      const savedSchemes = localStorage.getItem("allSchemes");
+      if (savedSchemes) {
+        return JSON.parse(savedSchemes);
+      } else {
+        return [];
+      }
+    }
+    return [];
+  }, [showModal]);
+
+  const removeScheme = (id) => {
+    const removeItem = allSchemes.filter((schemeDetails) => {
+      return schemeDetails.id !== id;
+    });
+    setAllSchemes(removeItem);
+  };
 
   return (
     <div>
@@ -93,7 +166,7 @@ export default function Settings() {
                   </div>
                 </div>
                 <div id="demo" className="collapse">
-                  <form className="row g-2">
+                  <form className="row g-2 todos">
                     <div className="row">
                       <div className="col">
                         <label className="form-label">Pomodoro duration:</label>
@@ -162,7 +235,7 @@ export default function Settings() {
                       <div className="col">
                         <label className="form-label">Pomodoro category:</label>
                       </div>
-                      <div className="col" style={{ paddingBottom: 40 }}>
+                      <div className="col" style={{ paddingBottom: 20 }}>
                         <select
                           className="dropdown dropdown:hover"
                           id="category"
@@ -184,53 +257,61 @@ export default function Settings() {
                         </select>
                       </div>
                     </div>
-                    <div className="form-check form-switch">
-                      <label
-                        className="form-check-label"
-                        htmlFor="flexSwitchCheckChecked"
-                      >
-                        Auto start pomodoros
-                      </label>
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="flexSwitchCheckChecked"
-                        defaultChecked
-                        onChange={(e) => {
-                          setSchemeDetails({
-                            ...schemeDetails,
-                            autostartPomodoros: e.target.checked,
-                          });
-                        }}
-                      />
+                    <div className="row" style={{ paddingBottom: 20 }}>
+                      <div className="col">
+                        <div className="form-check form-switch">
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexSwitchCheckChecked"
+                          >
+                            Auto start pomodoros
+                          </label>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="flexSwitchCheckChecked"
+                            defaultChecked
+                            onChange={(e) => {
+                              setSchemeDetails({
+                                ...schemeDetails,
+                                autostartPomodoros: e.target.checked,
+                              });
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div className="form-check form-switch">
-                      <label
-                        className="form-check-label"
-                        htmlFor="flexSwitchCheckChecked"
-                      >
-                        Auto start breaks
-                      </label>
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="flexSwitchCheckChecked"
-                        defaultChecked
-                        onChange={(e) => {
-                          setSchemeDetails({
-                            ...schemeDetails,
-                            autoStartBreaks: e.target.checked,
-                          });
-                        }}
-                      />
+                    <div className="row">
+                      <div className="col" style={{ paddingBottom: 20 }}>
+                        <div className="form-check form-switch">
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexSwitchCheckChecked"
+                          >
+                            Auto start breaks
+                          </label>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="flexSwitchCheckChecked"
+                            defaultChecked
+                            onChange={(e) => {
+                              setSchemeDetails({
+                                ...schemeDetails,
+                                autoStartBreaks: e.target.checked,
+                              });
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
                     <div className="layout">
                       <button
                         type="button"
                         className="btn btn-success"
-                        onClick={() => setSaveData(true)}
+                        onClick={() => setHandleSave(true)&& addScheme()}
                       >
                         Save
                       </button>
@@ -241,7 +322,50 @@ export default function Settings() {
             </TabPanel>
             <TabPanel>
               <h2>Application</h2>
-              <p>ovo je neki drugi tekst</p>
+              <div className="row">
+                <div style={{ paddingBottom: 20 }} className="col">
+                  {" "}
+                  Select Scheme you want to use:
+                </div>
+
+                <div className="todos">
+                  {storageSchemes.map((todo) => (
+                    <div className="row">
+                      <div className="row" style={{ paddingBottom: 20 }}>
+                        <div className="col">
+                        <h3>Pomodoro category: {todo.pomodoroCategory}</h3>
+                          <p>Pomodoro duration: {todo.pomodoroDuration}</p>
+                          <p>Short break duration: {todo.shortBreakDuration}</p>
+                          <p>Long break duration: {todo.longBreakDuration}</p>
+                          <p>Long break delay: {todo.longBreakDelay}</p>
+                          <p>
+                            Autostart pomodoro:{" "}
+                            {todo.autostartPomodoros.toString()}
+                          </p>
+                          <p>
+                            Autostart breaks: {todo.autoStartBreaks.toString()}
+                          </p>
+                        </div>
+                        <div className="col">
+                          <link
+                            rel="stylesheet"
+                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                          ></link>
+                          <button class="btnn">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                          <span> </span>
+                          <button class="btnn">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                          <span> </span>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </TabPanel>
           </TabPanels>
         </Tabs>
