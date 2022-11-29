@@ -14,11 +14,30 @@ body {
   padding-top: 3vh;
 }
 
+.alignParahraphActivityCategory {
+  display: flex;
+  height: 5.3vh;
+  margin: auto;
+  align-items: center;
+}
+
+.alignParahraphPomodoros {
+  display: flex;
+  height: 5.3vh;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  border-right: 1px;
+  border-style: solid;
+  border-width: 1px 3px;
+  border-color: silver;
+}
+
 .pomodoro {
   background-color: rgb(184, 72, 68);
   width: 110vh;
   height: 30vh;
-  padding-top: 0.1vh;
   border-radius: 1vh;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -33,9 +52,18 @@ body {
   justify-content: center;
 }
 
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .left {
   display: flex;
   justify-content: flex-start;
+}
+
+.column {
+  float: left;
 }
 
 .button-settings {
@@ -51,7 +79,7 @@ body {
   color: white;
   font-size: medium;
   border-color: white;
-  padding: 0.5vh 10vh;
+  padding: 0.1vh 10vh;
   border-radius: 0%;
 }
 
@@ -62,7 +90,7 @@ body {
 .todos {
   background-color: rgb(255, 255, 255);
   height: auto;
-  width: 110;
+  width: 110vh;
   border-radius: 1vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
@@ -71,7 +99,7 @@ body {
 
 .dropdown {
   height: 5.3vh;
-  width: 17vh;
+  width: 15vh;
 }
 
 .dropdown:hover {
@@ -80,11 +108,46 @@ body {
   box-shadow: 0 0 10px rgb(184, 72, 68);
 }
 
-.heighinput {
+.pomodorosInput {
   height: 5.3vh;
+  width: 5vh;
+  text-align: center;
+  border-radius: 100%;
+  border-style: solid;
 }
 
-.heighinput:focus {
+.activityInput {
+  height: 5.3vh;
+  width: 70vh;
+}
+
+.activityInput:focus {
+  outline: none !important;
+  border: 1px solid rgb(184, 72, 68);
+  box-shadow: 0 0 10px rgb(184, 72, 68);
+}
+
+.pomodorosInput {
+  height: 5.3vh;
+  width: 5vh;
+  border-radius: 100%;
+  border-right: 1px;
+  border-style: solid;
+  border-width: 1px 1px;
+  border-color: rgb(0, 0, 0);
+}
+
+.pomodorosInput:focus {
+  outline: none !important;
+  border: 1px solid rgb(184, 72, 68);
+  box-shadow: 0 0 10px rgb(184, 72, 68);
+}
+
+.padding {
+  padding: 1px;
+}
+
+.heighPomodoroInput:focus {
   outline: none !important;
   border: 1px solid rgb(184, 72, 68);
   box-shadow: 0 0 10px rgb(184, 72, 68);
@@ -99,26 +162,94 @@ body {
   color: rgb(184, 72, 68);
 }
 
-.RemovetodoButton {
+.closeButton {
+  border: none;
+  background-color: white;
+}
+
+.closeButton:hover {
+  color: rgb(184, 72, 68);
+}
+
+.removeTodoButton {
   border: none;
   background-color: white;
   color: rgb(255, 0, 0);
 }
 
-.RemoveTodoButton:hover {
+.removeTodoButton:hover {
   color: rgb(184, 72, 68);
 }
 
-.EditTodoButton {
+.editTodoButton {
   border: none;
   background-color: white;
   color: rgb(5, 97, 0);
 }
 
-.EditTodoButton:hover {
+.editTodoButton:hover {
+  color: rgb(184, 72, 68);
+}
+
+.notActiveButton {
+  border: none;
+  background-color: white;
+  color: rgb(5, 97, 0);
+}
+
+.notActiveButton:hover {
+  color: rgb(184, 72, 68);
+}
+
+.activeButton {
+  border: none;
+  background-color: white;
+  color: rgb(5, 97, 0);
+}
+
+.activeButton:hover {
+  color: rgb(184, 72, 68);
+}
+
+.clearSettingButton {
+  border: none;
+  background-color: white;
+  color: rgb(255, 120, 100);
+}
+.clearSettingButton:hover {
+  color: rgb(184, 72, 68);
+}
+
+.finishedTodoButton {
+  border: none;
+  background-color: white;
+  color: rgb(12, 193, 3);
+}
+
+.finishedTodoButton:hover {
+  color: rgb(184, 72, 68);
+}
+
+.allListButton {
+  border: none;
+  background-color: white;
+}
+
+.allListButton:hover {
   color: rgb(184, 72, 68);
 }
 
 .todopadding {
   padding-top: 2vh;
+}
+
+.paddingInitial {
+  padding: initial;
+}
+
+.numberOfTodos {
+  display: flex;
+  font-size: medium;
+  align-items: center;
+  font-weight: bold;
 }
