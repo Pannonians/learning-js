@@ -30,7 +30,7 @@ function Todo() {
         setCurrentTodo({
             ...currentTodo,
             [e.target.name]: e.target.value
-        });
+        })
     }
 
     const handleFormSubmit = (e) => {
@@ -56,22 +56,19 @@ function Todo() {
                 pomodoros: ""
             });
         } else {
-            alert ("Please add number of pomodoros!")
+            alert("Please add number of pomodoros!")
         }
     }
 
     const handleEditFormSubmit = (e) => {
-        e.preventDefault()
-        if (currentTodo.category !== "" && currentTodo.activity !== "" && currentTodo.pomodoros > 0) {
-        handleUpdateTodo(currentTodo.id, currentTodo)
-        }
-        alert ("Please add number of pomodoros!")
+        e.preventDefault();
+        handleUpdateTodo(currentTodo.id, currentTodo);
     }
 
     function handleUpdateTodo(id, updatedTodo) {
         const updatedItem = todos.map((todo) => {
-            return todo.id === id ? updatedTodo : todo
-        })
+            return todo.id === id ? updatedTodo : todo;
+        });
         setIsEditing(false);
         setTodos(updatedItem);
     }
@@ -90,10 +87,9 @@ function Todo() {
 
     const handleDeleteTodo = (id) => {
         const removeItem = todos.filter((todo) => {
-            return todo.id !== id
+            return todo.id !== id;
         });
-        setTodos(removeItem)
-        setIsEditing(false)
+        setTodos(removeItem);
     }
 
     useEffect(() => {
@@ -125,7 +121,7 @@ function Todo() {
                 </div>
             )}
             {isEditing ? (
-                <form onSubmit={() => handleEditFormSubmit()}>
+                <form onSubmit={handleEditFormSubmit}>
                     <div className="row">
                         <div className="row">
                             <div className="col-sm-2">
@@ -166,15 +162,14 @@ function Todo() {
                                 />
                             </div>
                             <div className="col-sm-1 center">
-                                <button className="addTodoButton addTodoButton:hover" title="Save"
-                                    onClick={() => handleAddTodo()}
-                                    type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        width="28"
-                                        height="28"
-                                        fill="currentColor"
-                                        class="bi bi-save"
-                                        viewBox="0 0 16 16">
+                                <button className="addTodoButton addTodoButton:hover"
+                                    onClick={() => handleAddTodo()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                    width="38" 
+                                    height="38" 
+                                    fill="currentColor" 
+                                    class="bi bi-save" 
+                                    viewBox="0 0 16 16">
                                         <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
                                     </svg>
                                 </button>
