@@ -1,0 +1,61 @@
+.preferences {
+    position: relative;
+}
+
+.settings {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    width: auto;
+    border-radius: 1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    box-shadow: 0 0 10px rgb(184, 72, 68);
+}
+
+.padding {
+    padding: 0%;
+}
+
+.setingsTextSize {
+    font-size: smaller;
+}
+
+.preferences .close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.preferences .layout {
+    text-align: center;
+}
+
+.preferences .border {
+    border-radius: 5px;
+}
+
+.close-button:hover {
+    font-weight: 600;
+}
+
+.tabsnav {
+    background: transparent;
+    padding-bottom: 15px;
+    align-items: center;
+    ;
+}
+
+.settingsInput {
+    height: 4.5vh;
+    width: 30vh;
+}
+
+.settingsInput:focus {
+    outline: none !important;
+    border: 1px solid rgb(184, 72, 68);
+    box-shadow: 0 0 10px rgb(184, 72, 68);
+}
