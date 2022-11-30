@@ -108,7 +108,6 @@ function Settings() {
       }
     }
     setAllSchemes(setFalse);
-    //allSchemes.splice(0, Infinity, ...setFalse);
     localStorage.setItem("allSchemes", JSON.stringify(allSchemes));
   };
 
