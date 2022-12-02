@@ -253,3 +253,51 @@ body {
   align-items: center;
   font-weight: bold;
 }
+
+.carousel {
+  background-color: rgb(255, 255, 255);
+  width: 110vh;
+  height: 30vh;
+  border-radius: 1vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 3vh;
+  color: gray;
+}
+
+.carousel-control-prev-icon {
+  position: absolute;
+  background-image: none;
+  margin-left: -210px;
+  padding-top: 10vh;
+}
+
+.carousel-control-next-icon {
+  background-image: none;
+  position: absolute;
+  margin-left: 190px;
+  padding-top: 10vh;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(184, 72, 68);
+  z-index: 1000;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(184, 72, 68);
+  z-index: 1000;
+}
+
+.carousel-item{
+    height: 50vh;
+    min-height: 300px;
+    background: no-repeat center scroll;
+    background-size: cover;
+}
