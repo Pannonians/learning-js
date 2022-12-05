@@ -5,6 +5,8 @@ import "@reach/dialog/styles.css";
 import "@reach/tabs/styles.css";
 import "../settings/popup.css";
 import "../../App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setSettings } from "../state/settingsReducer";
 
 function Settings() {
   const [showModal, setShowModal] = useState(false);
@@ -31,6 +33,8 @@ function Settings() {
       return [];
     }
   });
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (formSubmit) {
@@ -105,9 +109,25 @@ function Settings() {
       }
     }
     setAllSchemes(setFalse);
+    const reducerData = setFalse.filter((item) => item.isActive);
+    dispatch(
+      setSettings({
+        duration: parseInt(reducerData[0].pomodoroDuration * 60),
+        shortBreak: parseInt(reducerData[0].shortBreakDuration * 60),
+        longBreak: parseInt(reducerData[0].longBreakDuration * 60),
+        longBreakDelay: parseInt(reducerData[0].longBreakDelay * 60),
+        autoPomodoros: reducerData[0].autostartPomodoros,
+        autoBreaks: reducerData[0].autoStartBreaks,
+      }),
+      localStorage.setItem(
+        "timeLeft",
+        parseInt(reducerData[0].pomodoroDuration * 60)
+      )
+    );
+
     localStorage.setItem("allSchemes", JSON.stringify(allSchemes));
   };
-  
+
   return (
     <div>
       {" "}
