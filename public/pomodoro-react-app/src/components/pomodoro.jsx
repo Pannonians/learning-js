@@ -5,17 +5,16 @@ import Carousel from "./carousel"
 function Pomodoro() {
   return (
     <div>
-      <div className="row pomodoro container">
+      <div className="row pomodoro">
         <div className="col-sm-12 center"><Timer /></div>
       </div>
       <div className="row todopadding">
         <div className="col-sm-12 todos"><Todo /></div>
       </div>
-      <div className="row carousel">
-        <div><Carousel /></div>
+      <div className="row ">
+        <div className="col-sm-12 carousel"><Carousel /></div>
       </div>
     </div>
-
   );
 }
 

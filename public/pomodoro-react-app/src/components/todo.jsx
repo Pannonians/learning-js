@@ -165,8 +165,8 @@ function Todo() {
                                 <button className="addTodoButton addTodoButton:hover"
                                     onClick={() => handleAddTodo()}>
                                     <svg xmlns="http://www.w3.org/2000/svg" 
-                                    width="38" 
-                                    height="38" 
+                                    width="28" 
+                                    height="28" 
                                     fill="currentColor" 
                                     class="bi bi-save" 
                                     viewBox="0 0 16 16">

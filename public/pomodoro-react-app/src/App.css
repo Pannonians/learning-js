@@ -7,7 +7,7 @@ body {
   height: 100%;
 }
 
-.App {
+.app {
   display: flex;
   height: 100%;
   justify-content: center;
@@ -216,6 +216,7 @@ body {
   background-color: white;
   color: rgb(255, 120, 100);
 }
+
 .clearSettingButton:hover {
   color: rgb(184, 72, 68);
 }
@@ -257,47 +258,58 @@ body {
 .carousel {
   background-color: rgb(255, 255, 255);
   width: 110vh;
-  height: 30vh;
+  height: auto;
   border-radius: 1vh;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-top: 3vh;
   color: gray;
+  padding-left: 0px;
+}
+
+.carousel-item {
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  background: no-repeat center scroll;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: rgb(213, 213, 213);
+  z-index: -5;
+}
+
+.carousel-indicators .active {
+  background-color: rgb(184, 72, 68);
 }
 
 .carousel-control-prev-icon {
-  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
   background-image: none;
-  margin-left: -210px;
-  padding-top: 10vh;
+  margin-left: -250px;
+
 }
 
 .carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
   background-image: none;
-  position: absolute;
-  margin-left: 190px;
-  padding-top: 10vh;
+  margin-left: 250px;
 }
 
-.carousel-control-next-icon:after
-{
+.carousel-control-next-icon:after {
   content: '>';
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
-  color: rgb(184, 72, 68);
-  z-index: 1000;
+  color: red;
+  z-index: 1;
 }
 
 .carousel-control-prev-icon:after {
   content: '<';
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
-  color: rgb(184, 72, 68);
-  z-index: 1000;
-}
-
-.carousel-item{
-    height: 50vh;
-    min-height: 300px;
-    background: no-repeat center scroll;
-    background-size: cover;
+  color: red;
+  z-index: 1;
 }
