@@ -1,5 +1,6 @@
 import Timer from "./timer";
 import Todo from "./todo";
+import Carousel from "./carousel"
 
 function Pomodoro() {
   return (
@@ -13,6 +14,9 @@ function Pomodoro() {
         <div className="col-sm-12 todos">
           <Todo />
         </div>
+      </div>
+      <div className="row carousel">
+        <div><Carousel /></div>
       </div>
     </div>
   );
