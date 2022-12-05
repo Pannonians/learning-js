@@ -3,7 +3,7 @@ import Pomodoro from './components/pomodoro';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='app'>
       <Pomodoro />
     </div>
   );
