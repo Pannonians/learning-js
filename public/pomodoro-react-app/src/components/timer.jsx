@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Settings from "./settings/settings";
-import { setSettings } from "./state/settingsReducer";
 
 function Timer() {
   const pomodoro = useSelector((state) => state.settings.duration);
-  const [time, setTime] = useState(pomodoro);
+  const dataFromStorage = localStorage.getItem("timeLeft");
+  const [time, setTime] = useState(
+    dataFromStorage ? dataFromStorage : pomodoro
+  );
 
   const [isActive, setIsActive] = useState(false);
   const [displayMessage, setDisplayMessage] = useState("Start timer");
-
-  useEffect(() => localStorage.setItem("timeLeft", time), [time]);
 
   const getTime = () => {
     const timeFromLocalStorage = localStorage.getItem("timeLeft");
@@ -34,11 +34,23 @@ function Timer() {
     setIsActive(!isActive);
     setDisplayMessage(!isActive ? "Ticking" : "Pause");
   };
+
   const resetTimer = () => {
-    localStorage.setItem("timeLeft", pomodoro);
+    const savedSchemes = localStorage.getItem("allSchemes");
+    const resetTime = savedSchemes
+      ? parseInt(
+          JSON.parse(savedSchemes).filter((item) => item.isActive)[0]
+            .pomodoroDuration
+        ) * 60
+      : pomodoro;
+    localStorage.setItem("timeLeft", resetTime);
+    setTime(resetTime);
     setIsActive(false);
     setDisplayMessage(isActive ? "Ticking" : "Start timer");
   };
+
+  useEffect(() => localStorage.setItem("timeLeft", time), [time]);
+
   useEffect(() => {
     if (time > 0 && isActive) {
       const interval = setInterval(() => {
@@ -48,19 +60,6 @@ function Timer() {
     }
   }, [time, isActive]);
 
-  window.onload = function () {
-    let timeInterval = pomodoro;
-    let timeLeft = localStorage.getItem("timeLeft");
-    if (isNaN(timeLeft)) {
-      localStorage.setItem("timeLeft", timeInterval);
-    } else if (timeLeft === 0) {
-      localStorage.setItem("timeLeft", timeInterval);
-    } else {
-      timeInterval = parseInt(timeLeft);
-      setTime(timeInterval);
-      localStorage.setItem("timeLeft", time);
-    }
-  };
   return (
     <div className="col-sm-12">
       {" "}
