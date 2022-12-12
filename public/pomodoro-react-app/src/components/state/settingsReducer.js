@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  duration: 1500,
-  shortBreak: 300,
-  longBreak: 900,
-  longBreakDelay: 4,
-  autoPomodoros: false,
+  duration: 60,
+  shortBreak: 120,
+  longBreak: 180,
+  longBreakDelay: 2,
+  autoPomodoros: true,
   autoBreaks: false,
 };
 

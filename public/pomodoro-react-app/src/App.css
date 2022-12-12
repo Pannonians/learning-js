@@ -274,11 +274,12 @@ body {
 
 .carousel-indicators [data-bs-target] {
   background-color: rgb(213, 213, 213);
-  z-index: -5;
+  z-index: 0;
 }
 
 .carousel-indicators .active {
   background-color: rgb(184, 72, 68);
+  z-index: 0;
 }
 
 .carousel-control-prev-icon {
@@ -287,7 +288,6 @@ body {
   background-size: 100%, 100%;
   background-image: none;
   margin-left: -250px;
-
 }
 
 .carousel-control-next-icon {
@@ -312,4 +312,12 @@ body {
   font-weight: bold;
   color: red;
   z-index: 1;
+}
+
+.carousel-control-prev{
+  z-index: 0;
+}
+
+.carousel-control-next {
+  z-index: 0;
 }

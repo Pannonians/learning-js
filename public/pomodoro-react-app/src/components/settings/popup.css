@@ -1,5 +1,6 @@
 .preferences {
     position: relative;
+    z-index: 4;
 }
 
 .settings {
@@ -10,6 +11,7 @@
     padding-top: 2vh;
     padding-bottom: 2vh;
     box-shadow: 0 0 10px rgb(184, 72, 68);
+    z-index: 4;
 }
 
 .padding {

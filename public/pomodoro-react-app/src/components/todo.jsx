@@ -12,6 +12,7 @@ function Todo() {
         dateTime: "",
         pomodoros: ""
     })
+    
     const [todos, setTodos] = useState(() => {
         const savedTodos = localStorage.getItem("todos")
         if (savedTodos) {
