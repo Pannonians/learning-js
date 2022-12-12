@@ -115,7 +115,7 @@ function Settings() {
         duration: parseInt(reducerData[0].pomodoroDuration * 60),
         shortBreak: parseInt(reducerData[0].shortBreakDuration * 60),
         longBreak: parseInt(reducerData[0].longBreakDuration * 60),
-        longBreakDelay: parseInt(reducerData[0].longBreakDelay * 60),
+        longBreakDelay: parseInt(reducerData[0].longBreakDelay),
         autoPomodoros: reducerData[0].autostartPomodoros,
         autoBreaks: reducerData[0].autoStartBreaks,
       }),
