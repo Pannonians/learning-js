@@ -16,7 +16,6 @@
     > IdentityFile ~/.ssh/github_ubuntu
     > IdentitiesOnly yes
 
-
    * Add the .pub file to GitHub under SSH & GPG keys credentials option
    * Clone project: git clone git@<ime>.github.com:Pannonians/learning-js.git
   
