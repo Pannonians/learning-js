@@ -1,0 +1,14 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/Pannonians/learning-js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "index.ts"
+  }
+}
