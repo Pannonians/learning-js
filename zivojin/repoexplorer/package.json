@@ -1,0 +1,14 @@
+{
+  "name": "zivojin-repoexplorer",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "license": "ISC",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
+}
