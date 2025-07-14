@@ -2,7 +2,7 @@
   "name": "learning-js",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["petar", "aleksandra", "nikolina", "david", "public/media-hunt", "public/media-hunt-react-app", "public/pomodoro-react-app"],
+  "workspaces": ["petar", "aleksandra", "nikolina", "david", "zivojin", "public/media-hunt", "public/media-hunt-react-app", "public/pomodoro-react-app"],
   "description": "**Shortcuts and Most used commands in Linux**",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "aleksandra": "yarn workspace aleksandra",
     "nikolina": "yarn workspace nikolina",
     "david": "yarn workspace david",
+    "zivojin": "yarn workspace zivojin",
     "public/media-hunt": "yarn workspace media-hunt",
     "public/media-hunt-react-app": "yarn workspace media-hunt-react-app",
     "public/pomodoro-react-app": "yarn workspace pomodoro-react-app"
